@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>علي العلي — Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0E0C09;--cream:#F5F0E8;--cream2:#EDE6D6;--cream3:#E5DCC8;
+  --gold:#9C7E3A;--gold2:#C4A052;--gold3:rgba(156,126,58,.12);
+  --muted:#7A6E5C;--df:'Noto Naskh Arabic',serif;--bf:'Noto Naskh Arabic',sans-serif;
+}
+html{scroll-behavior:smooth;background:var(--cream)}
+body{font-family:var(--bf);color:var(--ink);overflow-x:hidden;font-size:16px;line-height:1.7;font-weight:300}
+*{-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold2);color:#fff}
+::-webkit-scrollbar{width:2px}::-webkit-scrollbar-thumb{background:var(--gold)}
+
+/* ── noise texture overlay ── */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
+  background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/><feColorMatrix type=%22saturate%22 values=%220%22/></filter><rect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22 opacity=%220.035%22/></svg>');
+}
+
+/* ── reveal ── */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.reveal.vis{opacity:1;transform:none}
+
+/* ── nav ── */
+nav{
+  position:fixed;top:0;inset-inline:0;z-index:200;height:72px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 64px;
+  background:rgba(245,240,232,.88);backdrop-filter:blur(20px) saturate(1.4);
+  border-bottom:1px solid rgba(156,126,58,.14);
+}
+.nav-mark{font-family:var(--df);font-size:20px;font-weight:600;letter-spacing:.04em;color:var(--ink)}
+.nav-mark em{font-style:italic;color:var(--gold)}
+.nav-links{display:flex;gap:0}
+.nav-links a{
+  font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;padding:9px 20px;
+  border-inline-end:1px solid rgba(156,126,58,.12);transition:color .25s;
+}
+.nav-links a:first-child{border-inline-start:1px solid rgba(156,126,58,.12)}
+.nav-links a:hover{color:var(--ink)}
+.nav-avail{
+  display:flex;align-items:center;gap:8px;font-size:11px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
+}
+.nav-dot{width:6px;height:6px;background:#4caf50;border-radius:50%;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(76,175,80,.5)}50%{box-shadow:0 0 0 5px rgba(76,175,80,0)}}
+
+/* ── hero ── */
+#hero{
+  min-height:100vh;padding:72px 64px 0;
+  display:grid;grid-template-rows:1fr auto;
+}
+.hero-body{
+  display:grid;grid-template-columns:1fr 400px;align-items:end;
+  gap:0;padding:80px 0 60px;
+}
+.hero-left{padding-inline-end:80px;border-inline-end:1px solid rgba(156,126,58,.15)}
+.hero-rule-top{
+  width:48px;height:1px;background:var(--gold2);margin-bottom:40px;
+}
+h1{
+  font-family:var(--df);font-size:clamp(3.8rem,7vw,6.5rem);
+  font-weight:300;line-height:.95;letter-spacing:-.02em;color:var(--ink);
+  margin-bottom:28px;
+}
+h1 strong{font-weight:700;display:block}
+h1 em{font-style:italic;color:var(--gold);display:block}
+.hero-jt{
+  font-size:11px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:52px;
+}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-ink{
+  padding:14px 38px;background:var(--ink);color:var(--cream);
+  font-family:var(--bf);font-size:11px;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;text-decoration:none;
+  transition:background .28s,transform .22s;
+}
+.btn-ink:hover{background:var(--gold);transform:translateY(-2px)}
+.btn-out{
+  padding:13px 38px;border:1px solid rgba(14,12,9,.28);color:var(--ink);
+  font-family:var(--bf);font-size:11px;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;text-decoration:none;transition:all .25s;
+}
+.btn-out:hover{border-color:var(--gold);color:var(--gold)}
+.hero-right{
+  padding-inline-start:64px;display:flex;flex-direction:column;justify-content:flex-end;
+}
+.hero-desc{font-size:16px;line-height:1.9;color:var(--muted);margin-bottom:48px}
+.hero-stats{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(156,126,58,.15)}
+.stat{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding:16px 0;border-bottom:1px solid rgba(156,126,58,.1);
+}
+.stat-v{font-family:var(--df);font-size:2.6rem;font-weight:700;color:var(--ink);line-height:1}
+.stat-l{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+/* horizontal rule band */
+.hero-band{
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid rgba(156,126,58,.18);padding:20px 0;
+  font-size:10px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);
+}
+.band-line{flex:1;height:1px;background:rgba(156,126,58,.1);margin:0 32px}
+
+/* ── sections ── */
+section:not(#hero){padding:112px 64px}
+.sw{max-width:1200px;margin:0 auto}
+.sec-eyebrow{
+  display:flex;align-items:center;gap:18px;
+  font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:22px;
+}
+.sec-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold2)}
+h2{
+  font-family:var(--df);font-size:clamp(2.2rem,4vw,3.4rem);
+  font-weight:300;letter-spacing:-.02em;color:var(--ink);
+  line-height:1.08;margin-bottom:72px;
+}
+h2 em{font-style:italic;color:var(--gold);font-weight:300}
+
+/* ── about ── */
+#about{background:var(--cream2)}
+.about-grid{display:grid;grid-template-columns:1fr 340px;gap:80px;align-items:start}
+.about-text{font-size:17px;line-height:2;color:#4A4238}
+.about-rule{width:40px;height:2px;background:var(--gold2);margin:36px 0}
+.about-side{display:flex;flex-direction:column;gap:0}
+.as-row{
+  display:flex;flex-direction:column;padding:24px 0;
+  border-bottom:1px solid rgba(156,126,58,.12);
+}
+.as-row:first-child{border-top:1px solid rgba(156,126,58,.12)}
+.as-val{font-family:var(--df);font-size:3.2rem;font-weight:700;color:var(--ink);line-height:1}
+.as-lbl{font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:7px}
+
+/* ── skills ── */
+#skills{background:var(--cream)}
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:1px;background:rgba(156,126,58,.12);
+}
+.sk{
+  list-style:none;background:var(--cream);padding:20px 24px;
+  font-size:13px;font-weight:500;color:#3a3228;
+  transition:all .25s;cursor:default;
+}
+.sk:hover{background:var(--ink);color:var(--gold2)}
+
+/* ── experience ── */
+#experience{background:var(--ink)}
+#experience .sec-eyebrow{color:var(--gold2)}
+#experience .sec-eyebrow::before{background:var(--gold)}
+#experience h2{color:var(--cream)}
+#experience h2 em{color:var(--gold2)}
+.exp-row{
+  display:grid;grid-template-columns:180px 1fr;
+  padding:48px 0;border-bottom:1px solid rgba(255,255,255,.05);
+  gap:48px;align-items:start;
+}
+.exp-row:first-of-type{border-top:1px solid rgba(255,255,255,.05)}
+.exp-left{display:flex;flex-direction:column;gap:12px;padding-top:5px}
+.exp-idx{
+  font-family:var(--df);font-size:1rem;font-weight:700;
+  color:rgba(196,160,82,.22);letter-spacing:.1em;
+}
+.exp-period{
+  font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(245,240,232,.25);line-height:1.6;
+}
+.exp-right{}
+.exp-title{
+  font-family:var(--df);font-size:1.7rem;font-weight:600;
+  color:var(--cream);line-height:1.15;margin-bottom:8px;
+}
+.exp-co{
+  font-size:10px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold2);margin-bottom:18px;
+}
+.exp-desc{font-size:14px;line-height:1.9;color:rgba(245,240,232,.38)}
+
+/* ── education ── */
+#education{background:var(--cream3)}
+.edu-list{display:flex;flex-direction:column;gap:0}
+.edu-item{
+  display:grid;grid-template-columns:120px 1fr;gap:40px;
+  padding:36px 0;border-bottom:1px solid rgba(156,126,58,.12);align-items:start;
+}
+.edu-item:first-child{border-top:1px solid rgba(156,126,58,.12)}
+.edu-yr{
+  font-family:var(--df);font-size:2.2rem;font-weight:700;
+  color:rgba(156,126,58,.2);line-height:1;padding-top:4px;
+}
+.edu-body{}
+.edu-deg{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:5px}
+.edu-sch{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+/* ── contact ── */
+#contact{background:var(--ink)}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-lbl{color:var(--gold2)}
+.contact-lbl::before{background:var(--gold)}
+.contact-h2{color:var(--cream)}
+.contact-h2 em{color:var(--gold2)}
+.contact-intro{font-size:16px;line-height:1.85;color:rgba(245,240,232,.38);margin-top:-36px;margin-bottom:0}
+.c-links{display:flex;flex-direction:column;gap:2px;margin-top:72px}
+.c-link{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 24px;background:rgba(255,255,255,.03);text-decoration:none;
+  border-inline-start:2px solid transparent;transition:all .22s;
+}
+.c-link:hover{background:rgba(196,160,82,.08);border-color:var(--gold2)}
+.c-link .cl{
+  font-size:9px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;
+  color:rgba(245,240,232,.28);
+}
+.c-link .cv{font-size:13px;font-weight:500;color:var(--gold2)}
+.c-raw{font-size:13px;color:rgba(245,240,232,.38);padding:20px 0}
+
+/* ── footer ── */
+footer{
+  background:var(--ink);text-align:center;padding:36px 20px;
+  border-top:1px solid rgba(255,255,255,.04);
+  font-size:10px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;
+  color:rgba(245,240,232,.18);
+}
+
+/* ── responsive ── */
+@media(max-width:960px){
+  nav{padding:0 28px}.nav-links{display:none}.nav-avail{display:none}
+  #hero{padding:72px 28px 0}
+  .hero-body{grid-template-columns:1fr;padding:60px 0 40px}
+  .hero-left{padding-inline-end:0;border:none}
+  .hero-right{display:none}
+  section:not(#hero){padding:80px 28px}
+  .about-grid{grid-template-columns:1fr}
+  .exp-row{grid-template-columns:1fr;gap:16px}
+  .contact-wrap{grid-template-columns:1fr}
+  .c-links{margin-top:0}
+}
+</style></head><body>
+<nav>
+<div class="nav-mark">علي<em>.</em></div>
+<div class="nav-links"><a href="#about">عني</a><a href="#skills">المهارات</a><a href="#experience">الخبرات</a><a href="#education">التعليم</a><a href="#contact">التواصل</a></div>
+<div class="nav-avail"><span class="nav-dot"></span>متاح للفرص الجديدة</div>
+</nav>
+<section id="hero">
+<div class="hero-body">
+<div class="hero-left">
+<div class="hero-rule-top"></div>
+<h1><em>علي العلي</em><strong>مهندس برمجيات</strong></h1>
+<p class="hero-jt">2+ سنوات خبرة</p>
+<div class="hero-btns"><a href="#contact" class="btn-ink">تواصل معي</a><a href="#experience" class="btn-out">تصفح أعمالي</a></div>
+</div>
+<div class="hero-right">
+<p class="hero-desc">مطور تطبيقات جوال متخصص في Flutter و Dart، يمتلك خبرة في تصميم وتنفيذ تطبيقات ذات أداء عالي وتجربة مستخدم سلسة.</p>
+<div class="hero-stats">
+<div class="stat"><span class="stat-v" data-val="2" data-suf="+">0+</span><span class="stat-l">سنوات خبرة</span></div>
+<div class="stat"><span class="stat-v" data-val="5">0</span><span class="stat-l">مهارة</span></div>
+<div class="stat"><span class="stat-v" data-val="4" data-suf="+">0+</span><span class="stat-l">مشروع</span></div>
+</div>
+</div>
+</div>
+<div class="hero-band"><span>مهندس برمجيات</span><span class="band-line"></span><span>متاح للفرص الجديدة</span></div>
+</section>
+<section id="about"><div class="sw reveal">
+<div class="sec-eyebrow">عني</div>
+<h2><em>من أنا</em></h2>
+<div class="about-grid">
+<div><p class="about-text">مطور تطبيقات جوال متخصص في Flutter و Dart، يمتلك خبرة في تصميم وتنفيذ تطبيقات ذات أداء عالي وتجربة مستخدم سلسة.</p><div class="about-rule"></div></div>
+<div class="about-side">
+<div class="as-row"><div class="as-val" data-val="2" data-suf="+">0+</div><div class="as-lbl">سنوات خبرة</div></div>
+<div class="as-row"><div class="as-val" data-val="5">0</div><div class="as-lbl">مهارة</div></div>
+<div class="as-row"><div class="as-val" data-val="4" data-suf="+">0+</div><div class="as-lbl">مشروع</div></div>
+</div>
+</div>
+</div></section>
+<section id="skills"><div class="sw reveal">
+<div class="sec-eyebrow">المهارات</div>
+<h2><em>ما أتقنه</em></h2>
+<ul class="skills-grid"><li class="sk">لغات البرمجة: Dart
+- أطر العمل: Flutter
+- أدوات التطوير: Android Studio</li><li class="sk">VS Code</li><li class="sk">Git
+- منهجيات العمل: Agile</li><li class="sk">Scrum
+- مهارات إضافية: تصميم واجهات المستخدم (UI/UX)</li><li class="sk">اختبار الوحدات</li></ul>
+</div></section>
+<section id="experience"><div class="sw">
+<div class="sec-eyebrow contact-lbl">الخبرة</div>
+<h2 class="contact-h2"><em>مسيرتي المهنية</em></h2>
+<div class="exp-row reveal"><div class="exp-left"><span class="exp-idx">01</span><span class="exp-period"></span></div><div class="exp-right"><div class="exp-title">مطور تطبيقات جوال – شركة تقنية (سنتان)</div><div class="exp-co">- تصميم وتطوير تطبيقات أندرويد و iOS باستخدام إطار عمل Flutter.</div><div class="exp-desc">- كتابة كود نظيف وقابل للصيانة بلغة Dart، مع اتباع أفضل ممارسات البرمجة. — - التعاون مع فريق التصميم لتحويل النماذج الأولية إلى واجهات تفاعلية. — - إجراء اختبارات الوحدات والتكامل لضمان استقرار التطبيق قبل الإطلاق. — - المشاركة في اجتماعات التخطيط sprint وتقدير المهام باستخدام منهجيات Agile.</div></div></div>
+</div></section>
+<section id="education"><div class="sw reveal">
+<div class="sec-eyebrow">التعليم</div>
+<h2><em>الخلفية الأكاديمية</em></h2>
+<div class="edu-list"><div class="edu-item reveal"><div class="edu-yr"></div><div class="edu-body"><div class="edu-deg">دبلوم هندسة برمجيات – معهد تقني</div><div class="edu-sch">- دراسة أساسيات هندسة البرمجيات، خوارزميات، وهياكل البيانات.</div></div></div>
+</div>
+</div></section>
+<section id="contact"><div class="sw"><div class="contact-wrap">
+<div class="reveal">
+<div class="sec-eyebrow contact-lbl">التواصل</div>
+<h2 class="contact-h2"><em>لنتحدث</em></h2>
+<p class="contact-intro">أنا دائماً منفتح على فرص جديدة وتعاون مثمر.</p>
+</div>
+<div class="c-links reveal"><a href="tel:٠٩٩٨٦٥٤٦٧٧" class="c-link" target="_blank"><span class="cl">Phone</span><span class="cv">٠٩٩٨٦٥٤٦٧٧</span></a></div>
+</div></div></section>
+<footer>صُنع بشغف · علي العلي © 2026</footer>
+<div class="scv-badge">
+  <a href="https://smartcv.app" target="_blank" rel="noopener" class="scv-link">
+    <span class="scv-icon">⚡</span>
+    <span class="scv-text">Created with <strong>SmartCV</strong></span>
+    <span class="scv-arrow">↗</span>
+  </a>
+</div>
+<style>
+.scv-badge{
+  position:fixed;bottom:24px;right:24px;z-index:9000;
+  font-family:system-ui,sans-serif;
+}
+.scv-link{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(245,240,232,.9);
+  border:1px solid rgba(156,126,58,.2);
+  backdrop-filter:blur(16px);
+  padding:10px 18px;border-radius:100px;
+  text-decoration:none;color:#7A6E5C;
+  font-size:12px;font-weight:500;letter-spacing:.02em;
+  transition:all .25s cubic-bezier(.22,1,.36,1);
+  box-shadow:0 4px 24px rgba(0,0,0,.18);
+}
+.scv-link:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 32px rgba(0,0,0,.28);
+  color:#9C7E3A;
+}
+.scv-icon{font-size:13px;line-height:1}
+.scv-text strong{color:#9C7E3A;font-weight:700}
+.scv-arrow{font-size:11px;opacity:.6;transition:transform .22s}
+.scv-link:hover .scv-arrow{transform:translate(2px,-2px);opacity:1}
+@media(max-width:600px){
+  .scv-badge{bottom:16px;right:16px}
+  .scv-link{padding:8px 14px;font-size:11px}
+}
+</style><script>
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis')}});
+  },{threshold:0.07});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  /* counter animation */
+  var cio=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting && !e.target.dataset.done){
+        e.target.dataset.done='1';
+        var end=parseInt(e.target.dataset.val)||0;
+        var dur=1400,step=16,start=0,inc=end/((dur/step));
+        var t=setInterval(function(){
+          start=Math.min(start+inc,end);
+          e.target.textContent=Math.floor(start)+(e.target.dataset.suf||'');
+          if(start>=end)clearInterval(t);
+        },step);
+      }
+    });
+  },{threshold:0.5});
+  document.querySelectorAll('[data-val]').forEach(function(el){cio.observe(el)});
+})();
+</script></body></html>
