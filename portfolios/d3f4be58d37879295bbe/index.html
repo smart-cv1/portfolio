@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>علي العلي — Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#030B18;--bg2:#060E1E;
+  --teal:#0FD4A8;--violet:#8B5CF6;--rose:#F472B6;
+  --tx:#DDE8FF;--muted:#4A6890;--bd:rgba(255,255,255,.06);
+  --card:rgba(255,255,255,.038);--card2:rgba(255,255,255,.05);
+  --glass:rgba(10,20,40,.7);
+  --gr:linear-gradient(135deg,#0FD4A8,#8B5CF6 50%,#F472B6);
+  --gr2:linear-gradient(90deg,#0FD4A8,#8B5CF6);
+  --df:'Tajawal',sans-serif;--bf:'Tajawal',sans-serif;
+}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:var(--bf);color:var(--tx);overflow-x:hidden;font-weight:300;line-height:1.72;font-size:15px}
+*{-webkit-font-smoothing:antialiased}
+::selection{background:rgba(15,212,168,.25);color:var(--tx)}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--teal),var(--violet))}
+
+/* ── ambient orbs ── */
+.orbs{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);animation:float 30s ease-in-out infinite}
+.o1{width:700px;height:700px;top:-200px;left:-150px;background:rgba(15,212,168,.06)}
+.o2{width:600px;height:600px;top:40%;right:-200px;background:rgba(139,92,246,.07);animation-delay:-12s}
+.o3{width:500px;height:500px;bottom:-100px;left:30%;background:rgba(244,114,182,.05);animation-delay:-22s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-50px) scale(1.04)}66%{transform:translate(-30px,36px) scale(.97)}}
+
+/* ── noise overlay ── */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.03;
+  background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.7%22 numOctaves=%224%22 stitchTiles=%22stitch%22/></filter><rect width=%22300%22 height=%22300%22 filter=%22url(%23n)%22/></svg>');
+}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.reveal.vis{opacity:1;transform:none}
+
+/* ── nav ── */
+nav{
+  position:fixed;top:0;inset-inline:0;z-index:200;height:68px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 64px;
+  background:rgba(3,11,24,.75);backdrop-filter:blur(32px) saturate(1.8);
+  border-bottom:1px solid var(--bd);
+}
+.nav-logo{
+  font-family:var(--df);font-size:20px;
+  font-style:italic;background:var(--gr);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.nav-links{display:flex;gap:2px}
+.nav-links a{
+  font-size:11px;font-weight:500;color:var(--muted);
+  text-decoration:none;padding:8px 18px;border-radius:8px;
+  transition:all .25s;border:1px solid transparent;
+}
+.nav-links a:hover{color:var(--tx);border-color:var(--bd);background:var(--card)}
+.nav-pill{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(15,212,168,.07);border:1px solid rgba(15,212,168,.2);
+  padding:7px 18px;border-radius:100px;
+  font-size:11px;font-weight:500;color:var(--teal);
+}
+.pill-dot{
+  width:6px;height:6px;background:var(--teal);border-radius:50%;
+  animation:throb 2.4s ease-in-out infinite;
+}
+@keyframes throb{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
+
+/* ── hero ── */
+#hero{
+  min-height:100vh;padding:140px 64px 100px;
+  display:flex;align-items:center;position:relative;z-index:1;
+}
+.hero-wrap{
+  max-width:1200px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 400px;gap:80px;align-items:center;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  background:rgba(15,212,168,.07);border:1px solid rgba(15,212,168,.18);
+  padding:8px 22px;border-radius:100px;
+  font-size:11px;font-weight:600;color:var(--teal);
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:40px;
+}
+h1{
+  font-family:var(--df);font-size:clamp(3rem,6.5vw,5.5rem);
+  font-weight:700;line-height:1.02;letter-spacing:-.025em;
+  color:var(--tx);margin-bottom:16px;
+}
+h1 em{
+  font-style:italic;font-weight:400;
+  background:var(--gr);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub-title{
+  font-family:var(--bf);font-size:14px;font-weight:400;
+  color:var(--muted);letter-spacing:.06em;text-transform:uppercase;
+  margin-bottom:28px;
+}
+.hero-desc{
+  font-size:16px;line-height:1.95;color:rgba(221,232,255,.45);
+  max-width:520px;margin-bottom:52px;
+}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:64px}
+.btn-gr{
+  padding:14px 36px;border-radius:12px;
+  background:var(--gr);color:#fff;
+  font-family:var(--bf);font-size:13px;font-weight:600;
+  text-decoration:none;transition:all .3s;
+  box-shadow:0 4px 32px rgba(15,212,168,.2);
+}
+.btn-gr:hover{transform:translateY(-3px);box-shadow:0 12px 48px rgba(15,212,168,.3)}
+.btn-gl{
+  padding:13px 36px;border-radius:12px;
+  background:var(--card2);border:1px solid var(--bd);
+  color:var(--tx);font-family:var(--bf);font-size:13px;font-weight:500;
+  text-decoration:none;transition:all .25s;backdrop-filter:blur(8px);
+}
+.btn-gl:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12)}
+.hero-nums{display:flex;gap:0;border-top:1px solid var(--bd);padding-top:36px}
+.hn{flex:1;padding-inline-end:36px;border-inline-end:1px solid var(--bd)}
+.hn:last-child{border-inline-end:none;padding-inline-end:0;padding-inline-start:36px}
+.hn:not(:first-child):not(:last-child){padding-inline-start:36px}
+.hn-val{
+  font-family:var(--df);font-size:2.8rem;font-weight:700;
+  background:var(--gr);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1;
+}
+.hn-lbl{font-size:11px;font-weight:500;color:var(--muted);margin-top:6px}
+
+/* hero right panel */
+.hero-panel{
+  background:var(--glass);backdrop-filter:blur(28px);
+  border:1px solid var(--bd);border-radius:24px;padding:40px;
+  position:relative;overflow:hidden;
+}
+.hero-panel::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--gr);
+}
+.panel-label{
+  font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+  background:var(--gr2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;margin-bottom:24px;display:block;
+}
+.panel-text{font-size:15px;line-height:1.85;color:rgba(221,232,255,.5);margin-bottom:36px}
+.panel-skills{display:flex;flex-wrap:wrap;gap:8px}
+.ps{
+  padding:7px 16px;background:rgba(15,212,168,.06);
+  border:1px solid rgba(15,212,168,.16);border-radius:8px;
+  font-size:12px;font-weight:500;color:var(--teal);
+  transition:all .22s;cursor:default;
+}
+.ps:hover{background:rgba(15,212,168,.12);border-color:rgba(15,212,168,.3)}
+
+/* ── sections ── */
+section:not(#hero){padding:112px 64px;position:relative;z-index:1}
+.sw{max-width:1200px;margin:0 auto}
+.sec-tag{
+  display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;
+  font-size:10px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;
+  background:var(--gr);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text;
+}
+h2{
+  font-family:var(--df);font-size:clamp(2rem,3.8vw,3rem);
+  font-weight:700;letter-spacing:-.02em;color:var(--tx);
+  line-height:1.08;margin-bottom:72px;
+}
+h2 em{
+  font-style:italic;font-weight:400;
+  background:var(--gr);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text;
+}
+
+/* ── about ── */
+#about{background:var(--bg2)}
+.about-layout{display:grid;grid-template-columns:1fr 280px;gap:64px}
+.about-text{font-size:17px;line-height:2;color:rgba(221,232,255,.55)}
+.about-cards{display:flex;flex-direction:column;gap:10px}
+.ab-card{
+  background:var(--card);border:1px solid var(--bd);border-radius:16px;
+  padding:24px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s;
+}
+.ab-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--gr);opacity:0;transition:opacity .3s;
+}
+.ab-card:hover{transform:translateX(-4px);border-color:rgba(15,212,168,.2)}
+.ab-card:hover::before{opacity:1}
+.ab-val{
+  font-family:var(--df);font-size:2.8rem;font-weight:700;
+  background:var(--gr);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text;line-height:1;
+}
+.ab-lbl{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:7px}
+
+/* ── skills ── */
+#skills{background:var(--bg)}
+.skills-wrap{display:flex;flex-wrap:wrap;gap:10px}
+.sk{
+  padding:11px 24px;background:var(--card);border:1px solid var(--bd);
+  border-radius:100px;font-size:13px;font-weight:500;color:var(--tx);
+  cursor:default;transition:all .25s;
+  opacity:0;animation:pop-in .45s cubic-bezier(.22,1,.36,1) var(--d,0s) forwards;
+}
+.sk:hover{
+  background:rgba(15,212,168,.08);border-color:rgba(15,212,168,.35);
+  color:var(--teal);transform:translateY(-2px);
+}
+@keyframes pop-in{from{opacity:0;transform:scale(.86) translateY(8px)}to{opacity:1;transform:none}}
+
+/* ── experience ── */
+#experience{background:var(--bg2)}
+.exp-list{display:flex;flex-direction:column;gap:14px}
+.exp-card{
+  background:var(--glass);backdrop-filter:blur(20px);
+  border:1px solid var(--bd);border-radius:20px;
+  padding:36px;position:relative;overflow:hidden;
+  transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .3s;
+}
+.exp-card:hover{transform:translateY(-5px);border-color:rgba(139,92,246,.3)}
+.exp-glow{
+  position:absolute;top:-60px;right:-60px;width:200px;height:200px;
+  border-radius:50%;background:rgba(139,92,246,.08);
+  filter:blur(40px);transition:opacity .35s;
+}
+.exp-card:hover .exp-glow{opacity:2}
+.exp-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;flex-wrap:wrap;gap:8px}
+.exp-period{
+  font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted);
+}
+.exp-co{
+  font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  background:var(--gr2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.exp-title{
+  font-family:var(--df);font-size:1.5rem;font-weight:700;
+  color:var(--tx);margin-bottom:14px;
+}
+.exp-desc{font-size:13px;line-height:1.85;color:rgba(221,232,255,.38)}
+
+/* ── education ── */
+#education{background:var(--bg)}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.edu-card{
+  background:var(--card);border:1px solid var(--bd);border-radius:18px;
+  padding:32px;position:relative;overflow:hidden;
+  transition:all .35s cubic-bezier(.22,1,.36,1);
+}
+.edu-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--gr);transform:scaleX(0);transform-origin:left;
+  transition:transform .4s cubic-bezier(.22,1,.36,1);
+}
+.edu-card:hover{transform:translateY(-6px);border-color:rgba(15,212,168,.2);background:var(--card2)}
+.edu-card:hover::after{transform:scaleX(1)}
+.edu-yr{
+  font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+  background:var(--gr);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;margin-bottom:16px;display:block;
+}
+.edu-deg{font-family:var(--df);font-size:1.15rem;font-weight:700;color:var(--tx);margin-bottom:8px}
+.edu-sch{font-size:12px;font-weight:500;color:var(--teal)}
+
+/* ── contact ── */
+#contact{background:var(--bg2)}
+.contact-inner{max-width:760px;margin:0 auto;text-align:center}
+.contact-intro{font-size:17px;line-height:1.9;color:rgba(221,232,255,.4);margin-bottom:52px;margin-top:-40px}
+.c-links{display:flex;flex-direction:column;gap:8px;text-align:left}
+.c-link{
+  display:flex;justify-content:space-between;align-items:center;
+  background:var(--card);border:1px solid var(--bd);border-radius:14px;
+  padding:20px 28px;text-decoration:none;
+  transition:all .28s cubic-bezier(.22,1,.36,1);
+}
+.c-link:hover{
+  border-color:rgba(15,212,168,.3);background:rgba(15,212,168,.04);
+  transform:translateX(4px);
+}
+.c-link .cl{
+  font-size:9px;font-weight:600;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--muted);
+}
+.c-link .cv{
+  font-size:13px;font-weight:600;
+  background:var(--gr2);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text;
+}
+.c-raw{font-size:13px;color:rgba(221,232,255,.38);padding:18px 0}
+
+footer{
+  text-align:center;padding:40px;border-top:1px solid var(--bd);
+  font-size:10px;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--muted);
+  position:relative;z-index:1;background:var(--bg);
+}
+@media(max-width:960px){
+  nav{padding:0 24px}.nav-links{display:none}.nav-pill{display:none}
+  #hero{padding:100px 28px 70px}
+  .hero-wrap{grid-template-columns:1fr}
+  .hero-panel{display:none}
+  section:not(#hero){padding:80px 28px}
+  .about-layout{grid-template-columns:1fr}
+  .hero-nums{gap:28px}
+}
+</style></head><body>
+<div class="orbs"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
+<nav>
+<div class="nav-logo">علي العلي</div>
+<div class="nav-links"><a href="#about">عني</a><a href="#skills">المهارات</a><a href="#experience">الخبرات</a><a href="#education">التعليم</a><a href="#contact">التواصل</a></div>
+<div class="nav-pill"><span class="pill-dot"></span>متاح للفرص الجديدة</div>
+</nav>
+<section id="hero">
+<div class="hero-wrap">
+<div class="hero-left">
+<div class="hero-eyebrow"><span class="pill-dot"></span>متاح للفرص الجديدة</div>
+<h1><em>علي العلي</em></h1>
+<p class="hero-sub-title">مهندس برمجيات</p>
+<p class="hero-desc">مطور تطبيقات جوال متخصص في Flutter و Dart، يمتلك خبرة في تصميم وتنفيذ تطبيقات ذات أداء عالي وتجربة مستخدم سلسة.</p>
+<div class="hero-btns"><a href="#contact" class="btn-gr">تواصل معي →</a><a href="#experience" class="btn-gl">تصفح أعمالي</a></div>
+<div class="hero-nums">
+<div class="hn"><div class="hn-val" data-val="2" data-suf="+">0+</div><div class="hn-lbl">سنوات خبرة</div></div>
+<div class="hn"><div class="hn-val" data-val="5">0</div><div class="hn-lbl">مهارة</div></div>
+<div class="hn"><div class="hn-val" data-val="4" data-suf="+">0+</div><div class="hn-lbl">مشروع</div></div>
+</div>
+</div>
+<div class="hero-panel">
+<span class="panel-label">عني</span>
+<p class="panel-text">مطور تطبيقات جوال متخصص في Flutter و Dart، يمتلك خبرة في تصميم وتنفيذ تطبيقات ذات أداء عالي وتجربة مستخدم سلسة.</p>
+<div class="panel-skills"><span class="ps">لغات البرمجة: Dart
+- أطر العمل: Flutter
+- أدوات التطوير: Android Studio</span><span class="ps">VS Code</span><span class="ps">Git
+- منهجيات العمل: Agile</span><span class="ps">Scrum
+- مهارات إضافية: تصميم واجهات المستخدم (UI/UX)</span><span class="ps">اختبار الوحدات</span></div>
+</div>
+</div>
+</section>
+<section id="about"><div class="sw reveal">
+<div class="sec-tag">عني</div>
+<h2><em>من أنا</em></h2>
+<div class="about-layout">
+<p class="about-text">مطور تطبيقات جوال متخصص في Flutter و Dart، يمتلك خبرة في تصميم وتنفيذ تطبيقات ذات أداء عالي وتجربة مستخدم سلسة.</p>
+<div class="about-cards">
+<div class="ab-card"><div class="ab-val" data-val="2" data-suf="+">0+</div><div class="ab-lbl">سنوات خبرة</div></div>
+<div class="ab-card"><div class="ab-val" data-val="5">0</div><div class="ab-lbl">مهارة</div></div>
+<div class="ab-card"><div class="ab-val" data-val="4" data-suf="+">0+</div><div class="ab-lbl">مشروع</div></div>
+</div>
+</div>
+</div></section>
+<section id="skills"><div class="sw reveal">
+<div class="sec-tag">المهارات</div>
+<h2><em>ما أتقنه</em></h2>
+<div class="skills-wrap"><span class="sk" style="--d:0s">لغات البرمجة: Dart
+- أطر العمل: Flutter
+- أدوات التطوير: Android Studio</span><span class="sk" style="--d:0.055s">VS Code</span><span class="sk" style="--d:0.11s">Git
+- منهجيات العمل: Agile</span><span class="sk" style="--d:0.165s">Scrum
+- مهارات إضافية: تصميم واجهات المستخدم (UI/UX)</span><span class="sk" style="--d:0.22s">اختبار الوحدات</span></div>
+</div></section>
+<section id="experience"><div class="sw">
+<div class="sec-tag">الخبرة</div>
+<h2><em>مسيرتي المهنية</em></h2>
+<div class="exp-list"><div class="exp-card reveal" style="transition-delay:0s"><div class="exp-glow"></div><div class="exp-head"><div class="exp-period"></div><div class="exp-co">- تصميم وتطوير تطبيقات أندرويد و iOS باستخدام إطار عمل Flutter.</div></div><div class="exp-title">مطور تطبيقات جوال – شركة تقنية (سنتان)</div><div class="exp-desc">- كتابة كود نظيف وقابل للصيانة بلغة Dart، مع اتباع أفضل ممارسات البرمجة. — - التعاون مع فريق التصميم لتحويل النماذج الأولية إلى واجهات تفاعلية. — - إجراء اختبارات الوحدات والتكامل لضمان استقرار التطبيق قبل الإطلاق. — - المشاركة في اجتماعات التخطيط sprint وتقدير المهام باستخدام منهجيات Agile.</div></div>
+</div>
+</div></section>
+<section id="education"><div class="sw reveal">
+<div class="sec-tag">التعليم</div>
+<h2><em>الخلفية الأكاديمية</em></h2>
+<div class="edu-grid"><div class="edu-card reveal"><div class="edu-yr"></div><div class="edu-deg">دبلوم هندسة برمجيات – معهد تقني</div><div class="edu-sch">- دراسة أساسيات هندسة البرمجيات، خوارزميات، وهياكل البيانات.</div></div>
+</div>
+</div></section>
+<section id="contact"><div class="sw">
+<div class="contact-inner reveal">
+<div class="sec-tag">التواصل</div>
+<h2><em>لنتحدث</em></h2>
+<p class="contact-intro">أنا دائماً منفتح على فرص جديدة وتعاون مثمر.</p>
+<div class="c-links"><a href="tel:٠٩٩٨٦٥٤٦٧٧" class="c-link" target="_blank"><span class="cl">Phone</span><span class="cv">٠٩٩٨٦٥٤٦٧٧</span></a></div>
+</div>
+</div></section>
+<footer>صُنع بشغف · علي العلي © 2026</footer>
+<div class="scv-badge">
+  <a href="https://smartcv.app" target="_blank" rel="noopener" class="scv-link">
+    <span class="scv-icon">⚡</span>
+    <span class="scv-text">Created with <strong>SmartCV</strong></span>
+    <span class="scv-arrow">↗</span>
+  </a>
+</div>
+<style>
+.scv-badge{
+  position:fixed;bottom:24px;right:24px;z-index:9000;
+  font-family:system-ui,sans-serif;
+}
+.scv-link{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(16px);
+  padding:10px 18px;border-radius:100px;
+  text-decoration:none;color:rgba(255,255,255,.3);
+  font-size:12px;font-weight:500;letter-spacing:.02em;
+  transition:all .25s cubic-bezier(.22,1,.36,1);
+  box-shadow:0 4px 24px rgba(0,0,0,.18);
+}
+.scv-link:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 32px rgba(0,0,0,.28);
+  color:#0FD4A8;
+}
+.scv-icon{font-size:13px;line-height:1}
+.scv-text strong{color:#0FD4A8;font-weight:700}
+.scv-arrow{font-size:11px;opacity:.6;transition:transform .22s}
+.scv-link:hover .scv-arrow{transform:translate(2px,-2px);opacity:1}
+@media(max-width:600px){
+  .scv-badge{bottom:16px;right:16px}
+  .scv-link{padding:8px 14px;font-size:11px}
+}
+</style><script>
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis')}});
+  },{threshold:0.07});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  /* counter animation */
+  var cio=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting && !e.target.dataset.done){
+        e.target.dataset.done='1';
+        var end=parseInt(e.target.dataset.val)||0;
+        var dur=1400,step=16,start=0,inc=end/((dur/step));
+        var t=setInterval(function(){
+          start=Math.min(start+inc,end);
+          e.target.textContent=Math.floor(start)+(e.target.dataset.suf||'');
+          if(start>=end)clearInterval(t);
+        },step);
+      }
+    });
+  },{threshold:0.5});
+  document.querySelectorAll('[data-val]').forEach(function(el){cio.observe(el)});
+})();
+</script></body></html>
