@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yazan Shamieh — Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Share+Tech+Mono&family=Barlow+Condensed:wght@300;400;700;900&display=swap');
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--blk:#050505;--blk2:#0A0A0A;--r:#FF003C;--g:#00FF41;--y:#FFE500;--w:#FAFAFA;
+--dim:rgba(250,250,250,.28);--bd:rgba(250,250,250,.06);
+--fd:'Anton',sans-serif;--fb:'Barlow Condensed',sans-serif;--fm:'Share Tech Mono',monospace}
+html{scroll-behavior:smooth;background:var(--blk);cursor:none}
+body{font-family:var(--fb);color:var(--w);overflow-x:hidden;font-size:16px}
+*{-webkit-font-smoothing:antialiased}
+::selection{background:var(--r);color:#fff}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--r)}
+body::before{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;
+background:repeating-linear-gradient(0deg,rgba(0,0,0,.03) 0px,rgba(0,0,0,.03) 1px,transparent 1px,transparent 3px)}
+body::after{content:'';position:fixed;inset:0;z-index:9997;pointer-events:none;opacity:.04;
+background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="256" height="256" filter="url(%23n)"/></svg>')}
+
+#csr{position:fixed;z-index:9999;pointer-events:none;width:10px;height:10px;border-radius:50%;
+background:var(--w);transform:translate(-50%,-50%);transition:transform .08s}
+#csr-ring{position:fixed;z-index:9998;pointer-events:none;width:38px;height:38px;border-radius:50%;
+border:1px solid rgba(255,0,60,.6);transform:translate(-50%,-50%);
+transition:width .25s,height .25s,border-color .25s}
+
+@keyframes glitch1{0%,90%{clip-path:inset(0 0 100% 0)}92%{clip-path:inset(20% 0 60% 0);transform:translateX(-8px)}
+94%{clip-path:inset(50% 0 30% 0);transform:translateX(8px)}96%{clip-path:inset(80% 0 5% 0);transform:translateX(-4px)}
+98%,100%{clip-path:inset(0 0 100% 0);transform:none}}
+@keyframes glitch2{0%,91%{clip-path:inset(0 0 100% 0)}93%{clip-path:inset(60% 0 20% 0);transform:translateX(10px)}
+95%{clip-path:inset(10% 0 70% 0);transform:translateX(-10px)}97%{clip-path:inset(40% 0 45% 0);transform:translateX(5px)}
+99%,100%{clip-path:inset(0 0 100% 0);transform:none}}
+.glitch{position:relative}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;font:inherit;color:inherit}
+.glitch::before{color:var(--r);animation:glitch1 7s infinite;z-index:-1}
+.glitch::after{color:var(--g);animation:glitch2 7s infinite .5s;z-index:-1}
+
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal.vis{opacity:1;transform:none}
+
+nav{position:fixed;top:0;inset-inline:0;z-index:200;display:flex;align-items:stretch;height:56px;
+border-bottom:1px solid var(--bd);background:rgba(5,5,5,.95);backdrop-filter:blur(20px)}
+.nav-id{display:flex;align-items:center;padding:0 32px;font-family:var(--fd);font-size:22px;color:var(--w);
+border-inline-end:1px solid var(--bd);white-space:nowrap}
+.nav-id em{color:var(--r);font-style:normal}
+.nav-links{display:flex;flex:1}
+.nav-links a{flex:1;display:flex;align-items:center;justify-content:center;
+font-family:var(--fm);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+color:var(--dim);text-decoration:none;border-inline-end:1px solid var(--bd);transition:all .2s}
+.nav-links a:hover{background:var(--r);color:#fff}
+.nav-status{display:flex;align-items:center;gap:12px;padding:0 28px;
+font-family:var(--fm);font-size:10px;color:var(--g);border-inline-start:1px solid var(--bd);letter-spacing:.1em}
+.status-led{width:8px;height:8px;border-radius:50%;background:var(--g);animation:led 1.5s step-end infinite}
+@keyframes led{0%,100%{opacity:1}50%{opacity:.1}}
+
+.ticker{background:var(--r);overflow:hidden;padding:10px 0;margin-top:56px;border-bottom:1px solid rgba(0,0,0,.2)}
+.ticker-inner{display:inline-block;white-space:nowrap;animation:tick 24s linear infinite;
+font-family:var(--fd);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+#hero{min-height:calc(100vh - 80px);display:grid;grid-template-rows:1fr auto}
+.hero-main{display:grid;grid-template-columns:1fr 340px;border-bottom:1px solid var(--bd)}
+.hero-left{padding:64px 60px;display:flex;flex-direction:column;justify-content:space-between;border-inline-end:1px solid var(--bd)}
+.hero-counter{font-family:var(--fm);font-size:11px;color:var(--dim);letter-spacing:.2em;margin-bottom:24px;display:flex;align-items:center;gap:10px}
+.hero-counter::before{content:'[';color:var(--r)}.hero-counter::after{content:']';color:var(--r)}
+.big-name{font-family:var(--fd);font-size:clamp(4.5rem,12vw,10rem);line-height:.88;text-transform:uppercase;color:var(--w)}
+.big-name .line2{-webkit-text-stroke:1px rgba(255,255,255,.4);color:transparent;display:block}
+.big-name .line3{color:var(--y);display:block}
+.hero-meta{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--bd);padding-top:28px;margin-top:28px;flex-wrap:wrap;gap:20px}
+.hero-role{font-family:var(--fm);font-size:11px;color:var(--dim);letter-spacing:.18em;text-transform:uppercase}
+.hero-role strong{color:var(--g);display:block;font-family:var(--fd);font-size:1.3rem;letter-spacing:.04em;margin-top:4px}
+.hero-btns{display:flex;gap:0;flex-wrap:wrap}
+.btn-r{padding:14px 36px;background:var(--r);color:#fff;font-family:var(--fd);font-size:13px;letter-spacing:.1em;
+text-transform:uppercase;text-decoration:none;border:2px solid var(--r);transition:all .22s;display:inline-flex;align-items:center;gap:10px}
+.btn-r:hover{background:transparent;color:var(--r)}
+.btn-b{padding:12px 36px;border:2px solid rgba(250,250,250,.14);color:var(--w);font-family:var(--fd);
+font-size:13px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;margin-inline-start:-2px;transition:all .22s}
+.btn-b:hover{background:rgba(250,250,250,.06);border-color:rgba(250,250,250,.3)}
+.hero-right{display:flex;flex-direction:column}
+.hr-top{flex:1;padding:40px 32px;border-bottom:1px solid var(--bd);font-size:14px;line-height:1.85;color:var(--dim)}
+.hr-stats{display:flex;flex-direction:column}
+.hrstat{display:flex;justify-content:space-between;align-items:center;padding:20px 32px;border-bottom:1px solid var(--bd)}
+.hrstat:last-child{border-bottom:none}
+.hrstat-val{font-family:var(--fd);font-size:2.6rem;color:var(--y);line-height:1}
+.hrstat-lbl{font-family:var(--fm);font-size:10px;color:var(--dim);letter-spacing:.16em;text-transform:uppercase}
+.hero-marquee{border-top:1px solid var(--bd);padding:18px 0;overflow:hidden;background:var(--blk2)}
+.mq-inner{display:inline-flex;gap:48px;white-space:nowrap;animation:mq 22s linear infinite;
+font-family:var(--fm);font-size:11px;color:var(--dim);letter-spacing:.18em;text-transform:uppercase}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq-sep{color:var(--r)}
+
+section:not(#hero){padding:100px 60px;border-bottom:1px solid var(--bd)}
+.sw{max-width:1200px;margin:0 auto}
+.sec-num{font-family:var(--fm);font-size:10px;color:var(--r);letter-spacing:.3em;margin-bottom:12px;
+display:flex;align-items:center;gap:12px}
+.sec-num::after{content:'';flex:1;height:1px;background:var(--bd);max-width:80px}
+h2{font-family:var(--fd);font-size:clamp(2.8rem,6vw,5rem);text-transform:uppercase;
+letter-spacing:-.01em;color:var(--w);line-height:.88;margin-bottom:72px}
+h2 .accent{color:var(--r)}
+h2 .stroke{-webkit-text-stroke:1px rgba(255,255,255,.3);color:transparent}
+
+#about{background:var(--blk2)}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-text{font-size:16px;line-height:1.9;color:rgba(250,250,250,.5);font-weight:400}
+.about-list{border-top:1px solid var(--bd)}
+.ali{display:flex;justify-content:space-between;align-items:center;padding:20px 0;
+border-bottom:1px solid var(--bd);transition:padding-left .22s;cursor:default}
+.ali:hover{padding-left:12px}.ali:hover .ali-num{color:var(--r)}
+.ali-num{font-family:var(--fd);font-size:3rem;color:var(--y);line-height:1;transition:color .22s}
+.ali-lbl{font-family:var(--fm);font-size:11px;color:var(--dim);letter-spacing:.18em;text-transform:uppercase}
+
+#skills{background:var(--blk)}
+.skills-wrap{display:flex;flex-direction:column}
+.sk{display:grid;grid-template-columns:60px 1fr auto;align-items:center;gap:28px;padding:22px 0;
+border-bottom:1px solid var(--bd);transition:all .22s;cursor:default}
+.sk:first-child{border-top:1px solid var(--bd)}
+.sk:hover{background:rgba(255,0,60,.03);padding-inline-start:16px;border-color:rgba(255,0,60,.3)}
+.sk:hover .sk-idx{color:var(--r)}.sk:hover .sk-name{color:var(--y)}
+.sk-idx{font-family:var(--fm);font-size:11px;color:rgba(255,255,255,.18);letter-spacing:.1em}
+.sk-name{font-family:var(--fd);font-size:clamp(1.3rem,2.6vw,2rem);letter-spacing:.02em;text-transform:uppercase;color:var(--w);transition:color .22s}
+.sk-bar{height:2px;background:var(--bd);border-radius:2px;width:100px;overflow:hidden}
+.sk-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--r),var(--y));width:85%}
+
+#experience{background:var(--blk2)}
+.exp-items{display:flex;flex-direction:column}
+.exp-item{display:grid;grid-template-columns:80px 1fr;padding:52px 0;border-bottom:1px solid var(--bd);gap:40px;align-items:start}
+.exp-item:first-of-type{border-top:1px solid var(--bd)}
+.exp-n{font-family:var(--fd);font-size:4rem;color:rgba(255,0,60,.15);line-height:1;padding-top:4px}
+.exp-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;flex-wrap:wrap;gap:10px}
+.exp-title{font-family:var(--fd);font-size:clamp(1.3rem,2.8vw,2rem);text-transform:uppercase;color:var(--w);letter-spacing:.01em}
+.exp-period{font-family:var(--fm);font-size:10px;color:var(--blk);letter-spacing:.18em;text-transform:uppercase;background:var(--y);padding:5px 14px}
+.exp-co{font-family:var(--fm);font-size:11px;color:var(--g);letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}
+.exp-desc{font-size:15px;line-height:1.85;color:rgba(250,250,250,.38);font-weight:300}
+
+#education{background:var(--blk)}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px;background:var(--bd)}
+.edu-card{background:var(--blk);padding:40px;position:relative;overflow:hidden;transition:background .3s;cursor:default}
+.edu-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--r);
+transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.edu-card:hover{background:var(--blk2)}.edu-card:hover::after{transform:scaleX(1)}
+.edu-yr{font-family:var(--fd);font-size:3.5rem;color:rgba(255,228,0,.12);line-height:1;margin-bottom:20px}
+.edu-deg{font-family:var(--fd);font-size:1.2rem;text-transform:uppercase;color:var(--w);margin-bottom:10px;line-height:1.2}
+.edu-sch{font-family:var(--fm);font-size:10px;color:var(--dim);letter-spacing:.18em;text-transform:uppercase}
+
+#contact{background:var(--r);border-bottom:none}
+#contact .sec-num{color:var(--blk)}
+#contact .sec-num::after{background:rgba(0,0,0,.15)}
+#contact h2{color:var(--blk)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact-intro{font-size:15px;line-height:1.8;color:rgba(0,0,0,.55);font-weight:400;margin-top:-50px}
+.c-links{display:flex;flex-direction:column;gap:2px}
+.c-link{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;
+background:rgba(0,0,0,.07);text-decoration:none;border-inline-start:3px solid transparent;transition:all .2s}
+.c-link:hover{background:rgba(0,0,0,.14);border-color:var(--blk)}
+.cl{font-family:var(--fm);font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:rgba(0,0,0,.45)}
+.cv{font-family:var(--fd);font-size:14px;color:var(--blk)}
+.c-raw{font-size:13px;color:rgba(0,0,0,.5);padding:16px 0}
+footer{background:var(--blk);text-align:center;padding:32px;font-family:var(--fm);font-size:10px;
+letter-spacing:.28em;text-transform:uppercase;color:rgba(250,250,250,.18)}
+
+@media(max-width:1024px){
+  nav{height:auto;flex-wrap:wrap}
+  .nav-id{width:100%;border-bottom:1px solid var(--bd);border-inline-end:none;padding:14px 24px}
+  .nav-links{display:none}.nav-status{display:none}
+  .ticker{margin-top:56px}
+  .hero-main{grid-template-columns:1fr}.hero-right{display:none}
+  .hero-left{padding:48px 28px}
+  section:not(#hero){padding:72px 28px}
+  .about-layout{grid-template-columns:1fr}
+  .exp-item{grid-template-columns:1fr;gap:12px}.exp-n{display:none}
+  .contact-grid{grid-template-columns:1fr}
+}
+</style></head><body>
+<div id="csr"></div><div id="csr-ring"></div>
+<nav><div class="nav-id">Yazan<em>.</em>Shamieh</div><div class="nav-links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#contact">Contact</a></div><div class="nav-status"><span class="status-led"></span>SYS_ONLINE · 2026</div></nav>
+<div class="ticker"><div class="ticker-inner">Yazan Shamieh &nbsp;/&nbsp; FLUTTER & ASP.NET CORE DEVELOPER &nbsp;/&nbsp; Available for opportunities &nbsp;/&nbsp; Yazan Shamieh &nbsp;/&nbsp; FLUTTER & ASP.NET CORE DEVELOPER &nbsp;/&nbsp; Available for opportunities &nbsp;/&nbsp; Yazan Shamieh &nbsp;/&nbsp; FLUTTER & ASP.NET CORE DEVELOPER &nbsp;/&nbsp; Available for opportunities &nbsp;/&nbsp; Yazan Shamieh &nbsp;/&nbsp; FLUTTER & ASP.NET CORE DEVELOPER &nbsp;/&nbsp; Available for opportunities &nbsp;/&nbsp; </div></div>
+<section id="hero"><div class="hero-main"><div class="hero-left"><div class="hero-counter">ID:YAZANSHAMIEH · CLASS:DEV · PORT:2026</div><div class="big-name glitch" data-text="YAZAN SHAMIEH">YAZAN<span class="line2">SHAMIEH</span><span class="line3">FLUTTER.</span></div><div class="hero-meta"><div class="hero-role">Experience<strong>FLUTTER & ASP.NET CORE DEVELOPER</strong></div><div class="hero-btns"><a href="#contact" class="btn-r">Get in Touch →</a><a href="#experience" class="btn-b">View My Work</a></div></div></div><div class="hero-right"><div class="hr-top">EV Charging Management System
+- Developed a complete electric vehicle charging management system using Flutter and ASP.NET Core. - Designed and integrated RESTful APIs for reservation and user management.</div><div class="hr-stats"><div class="hrstat"><div class="hrstat-val" data-val="1" data-suf="+">0+</div><div class="hrstat-lbl">Years Experience</div></div><div class="hrstat"><div class="hrstat-val" data-val="4" data-suf="+">0+</div><div class="hrstat-lbl">Projects</div></div><div class="hrstat"><div class="hrstat-val" data-val="10">0</div><div class="hrstat-lbl">Skills</div></div></div></div></div><div class="hero-marquee"><div class="mq-inner">Dart <span class="mq-sep">/</span> Flutter <span class="mq-sep">/</span> RESTful API <span class="mq-sep">/</span> Firebase <span class="mq-sep">/</span> ASP.NET Core <span class="mq-sep">/</span> HTML <span class="mq-sep">/</span> CSS <span class="mq-sep">/</span> SQL <span class="mq-sep">/</span> Git <span class="mq-sep">/</span> VS Code <span class="mq-sep">/</span> Dart <span class="mq-sep">/</span> Flutter <span class="mq-sep">/</span> RESTful API <span class="mq-sep">/</span> Firebase <span class="mq-sep">/</span> ASP.NET Core <span class="mq-sep">/</span> HTML <span class="mq-sep">/</span> CSS <span class="mq-sep">/</span> SQL <span class="mq-sep">/</span> Git <span class="mq-sep">/</span> VS Code <span class="mq-sep">/</span> </div></div></section>
+<section id="about"><div class="sw"><div class="sec-num">01 / ABOUT</div><h2><span class="accent">Who</span><br><span class="stroke">I Am</span></h2><div class="about-layout reveal"><p class="about-text">EV Charging Management System
+- Developed a complete electric vehicle charging management system using Flutter and ASP.NET Core.
+- Designed and integrated RESTful APIs for reservation and user management.
+- Implemented a QR‑based vehicle verification system to ensure security and accuracy.
+- Designed a scalable architecture supporting multiple user roles.</p><div class="about-list"><div class="ali"><div class="ali-num" data-val="1" data-suf="+">0+</div><div class="ali-lbl">Years Experience</div></div><div class="ali"><div class="ali-num" data-val="4" data-suf="+">0+</div><div class="ali-lbl">Projects</div></div><div class="ali"><div class="ali-num" data-val="10">0</div><div class="ali-lbl">Skills</div></div></div></div></div></section>
+<section id="skills"><div class="sw"><div class="sec-num">02 / EXPERTISE</div><h2><span class="accent">Tech</span><br><span class="stroke">Stack</span></h2><div class="skills-wrap reveal"><div class="sk"><div class="sk-idx">01</div><div class="sk-name">Dart</div><div class="sk-bar"><div class="sk-fill"></div></div></div><div class="sk"><div class="sk-idx">02</div><div class="sk-name">Flutter</div><div class="sk-bar"><div class="sk-fill"></div></div></div><div class="sk"><div class="sk-idx">03</div><div class="sk-name">RESTful API</div><div class="sk-bar"><div class="sk-fill"></div></div></div><div class="sk"><div class="sk-idx">04</div><div class="sk-name">Firebase</div><div class="sk-bar"><div class="sk-fill"></div></div></div><div class="sk"><div class="sk-idx">05</div><div class="sk-name">ASP.NET Core</div><div class="sk-bar"><div class="sk-fill"></div></div></div><div class="sk"><div class="sk-idx">06</div><div class="sk-name">HTML</div><div class="sk-bar"><div class="sk-fill"></div></div></div><div class="sk"><div class="sk-idx">07</div><div class="sk-name">CSS</div><div class="sk-bar"><div class="sk-fill"></div></div></div><div class="sk"><div class="sk-idx">08</div><div class="sk-name">SQL</div><div class="sk-bar"><div class="sk-fill"></div></div></div><div class="sk"><div class="sk-idx">09</div><div class="sk-name">Git</div><div class="sk-bar"><div class="sk-fill"></div></div></div><div class="sk"><div class="sk-idx">10</div><div class="sk-name">VS Code</div><div class="sk-bar"><div class="sk-fill"></div></div></div></div></div></section>
+<section id="experience"><div class="sw"><div class="sec-num">03 / EXPERIENCE</div><h2><span class="accent">Work</span><br><span class="stroke">History</span></h2><div class="exp-items"><div class="exp-item reveal"><div class="exp-n">01</div><div class="exp-body"><div class="exp-head"><div class="exp-title">Code Clach Programming Game</div><div class="exp-period"></div></div><div class="exp-co">// - Developed an interactive programming game using Flutter.</div><p class="exp-desc">- Integrated backend services via ASP.NET Core. — - Implemented game logic and designed a responsive user interface. — - Optimized performance to ensure a smooth gaming experience. — SO CHIC E-commerce App — - Contributed to development of an e‑commerce application. — - Utilized Dart, Flutter, RESTful API, Firebase, ASP.NET Core, HTML, CSS, SQL, Git, VS Code. — - Gained two years of hands‑on experience in full‑stack mobile and web development.</p></div></div>
+</div></div></section>
+<section id="education"><div class="sw"><div class="sec-num">04 / EDUCATION</div><h2><span class="accent">Academic</span><br><span class="stroke">Records</span></h2><div class="edu-grid reveal"><div class="edu-card"><div class="edu-yr">2025</div><div class="edu-deg">Diploma in Software Engineering,</div><div class="edu-sch"></div></div>
+</div></div></section>
+<section id="contact"><div class="sw"><div class="sec-num">05 / CONTACT</div><div class="contact-grid"><div class="reveal"><h2>Let's<br><span class="stroke">Talk</span></h2><p class="contact-intro">Open to meaningful collaborations and new challenges.</p></div><div class="c-links reveal"><a href="mailto:yazanshamieh1@gmail.com" class="c-link" target="_blank"><span class="cl">Email</span><span class="cv">yazanshamieh1@gmail.com</span></a>
+<a href="tel:0984993277" class="c-link" target="_blank"><span class="cl">Phone</span><span class="cv">0984993277</span></a></div></div></div></section>
+<footer>YAZAN SHAMIEH © 2026 · BUILD: PHANTOM · SYS_ONLINE</footer>
+<div class="scv-badge">
+<a href="https://smartcv.app" target="_blank" rel="noopener" class="scv-link">
+<span class="scv-icon">⚡</span>
+<span class="scv-text">Created with <strong>SmartCV</strong></span>
+<span class="scv-arrow">↗</span>
+</a>
+</div>
+<style>
+.scv-badge{position:fixed;bottom:24px;right:24px;z-index:9000;font-family:system-ui,sans-serif}
+.scv-link{display:inline-flex;align-items:center;gap:8px;background:rgba(5,5,5,.85);border:1px solid rgba(255,0,60,.25);
+backdrop-filter:blur(16px);padding:10px 18px;border-radius:100px;text-decoration:none;color:rgba(250,250,250,.5);
+font-size:12px;font-weight:500;letter-spacing:.02em;transition:all .25s cubic-bezier(.22,1,.36,1);
+box-shadow:0 4px 24px rgba(0,0,0,.18)}
+.scv-link:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.28);color:#FF003C}
+.scv-icon{font-size:13px;line-height:1}
+.scv-text strong{color:#FF003C;font-weight:700}
+.scv-arrow{font-size:11px;opacity:.6;transition:transform .22s}
+.scv-link:hover .scv-arrow{transform:translate(2px,-2px);opacity:1}
+@media(max-width:600px){.scv-badge{bottom:16px;right:16px}.scv-link{padding:8px 14px;font-size:11px}}
+</style><script>
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis')});
+  },{threshold:0.07});
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-slow').forEach(function(el){io.observe(el)});
+  var cio=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting&&!e.target.dataset.done){
+        e.target.dataset.done='1';
+        var end=parseInt(e.target.dataset.val)||0,suf=e.target.dataset.suf||'';
+        var cur=0,step=end/60;
+        var t=setInterval(function(){
+          cur=Math.min(cur+step,end);
+          e.target.textContent=Math.floor(cur)+suf;
+          if(cur>=end)clearInterval(t);
+        },16);
+      }
+    });
+  },{threshold:0.5});
+  document.querySelectorAll('[data-val]').forEach(function(el){cio.observe(el)});
+})();
+</script><script>
+var csr=document.getElementById('csr'),ring=document.getElementById('csr-ring');
+var cx=0,cy=0,rx=0,ry=0;
+document.addEventListener('mousemove',function(e){cx=e.clientX;cy=e.clientY});
+(function a(){csr.style.left=cx+'px';csr.style.top=cy+'px';
+rx+=(cx-rx)*.14;ry+=(cy-ry)*.14;ring.style.left=Math.round(rx)+'px';ring.style.top=Math.round(ry)+'px';
+requestAnimationFrame(a)})();
+</script></body></html>
