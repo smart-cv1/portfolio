@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Full‑Stack Developer with proven expertise in Flutter and ASP.NET Core, specializing in building scalable mobile applications and API‑driven backend systems. Delivered end‑to‑end solutions including e‑commerce platforms, management systems, and real‑time tracking apps.">
+<meta name="theme-color" content="#C8674A">
+<meta property="og:title" content="Yazan — Software Engineer">
+<meta property="og:description" content="Full‑Stack Developer with proven expertise in Flutter and ASP.NET Core, specializing in building scalable mobile applications and API‑driven backend systems. Delivered end‑to‑end solutions including e‑commerce platforms, management systems, and real‑time tracking apps.">
+<meta property="og:type" content="profile">
+<meta name="twitter:card" content="summary">
+<title>Yazan — Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@200;300;400;500;600&display=swap');
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--blk:#161310;--blk2:#201B16;--blk3:#2A231C;--ivory:#F5EDE3;--ember:#E8794A;--ember-d:#C55A31;--gold:#D9AE59;--muted:rgba(245,237,227,.5);--bd:rgba(245,237,227,.1);--fd:'DM Serif Display',Georgia,serif;--fb:'Inter','Segoe UI',sans-serif}
+html{scroll-behavior:smooth;background:var(--blk)}
+body{font-family:var(--fb);color:var(--ivory);overflow-x:hidden;font-size:14px;line-height:1.78;font-weight:300}
+*{-webkit-font-smoothing:antialiased}::selection{background:var(--ember);color:var(--blk)}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--blk)}::-webkit-scrollbar-thumb{background:var(--ember);border-radius:4px}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 90% 60% at 82% -5%,rgba(232,121,74,.16) 0%,transparent 62%),radial-gradient(ellipse 70% 50% at 0% 105%,rgba(217,174,89,.09) 0%,transparent 58%)}
+.content{position:relative;z-index:1}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal.vis{opacity:1;transform:none}
+
+nav{position:fixed;top:0;inset-inline:0;z-index:200;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,56px);background:rgba(22,19,16,.82);backdrop-filter:blur(22px) saturate(150%);border-bottom:1px solid var(--bd)}
+.nav-logo{font-family:var(--fd);font-size:22px;display:flex;align-items:center;gap:9px}
+.nav-logo .lm{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--ember),var(--ember-d));color:var(--blk);font-size:12px;font-style:normal}
+.nav-menu{display:flex}
+.nav-menu a{font-size:9px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:10px 20px;border-inline-start:1px solid var(--bd);transition:all .24s}
+.nav-menu a:last-child{border-inline-end:1px solid var(--bd)}
+.nav-menu a:hover{color:var(--ember);background:rgba(232,121,74,.08)}
+.nav-tag{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blk);background:linear-gradient(120deg,var(--gold),#EBCB8B);padding:8px 16px;border-radius:100px;display:flex;align-items:center;gap:8px}
+.tag-dot{width:6px;height:6px;border-radius:50%;background:var(--blk);animation:tb 2s step-end infinite}
+@keyframes tb{0%,100%{opacity:1}50%{opacity:.15}}
+
+.marquee-strip{background:linear-gradient(90deg,var(--ember),#F09A72,var(--ember));overflow:hidden;padding:10px 0;margin-top:64px}
+.mq-inner{display:inline-block;white-space:nowrap;animation:mr 28s linear infinite;font-family:var(--fd);font-size:15px;letter-spacing:.05em;color:var(--blk)}
+@keyframes mr{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq-g{font-style:normal;font-size:11px;opacity:.45}
+
+#hero{min-height:calc(100vh - 40px);display:grid;grid-template-rows:1fr auto}
+.hero-main{display:grid;grid-template-columns:1fr 400px;gap:48px;align-items:center;padding:clamp(48px,8vw,80px) clamp(20px,4vw,56px)}
+.hero-issue{font-size:9px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--ember);display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.hero-issue::before{content:'';width:32px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--ember),var(--gold))}
+.big-h{font-family:var(--fd);font-size:clamp(3.6rem,9vw,7rem);line-height:.94;letter-spacing:-.01em}
+.big-h .l1{display:block}
+.big-h .l2{display:block;font-style:italic;background:linear-gradient(100deg,var(--ember),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.big-h .l3{-webkit-text-stroke:1px rgba(245,237,227,.28);color:transparent;display:block}
+.hero-role{font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:28px 0 36px;display:flex;align-items:center;gap:12px}
+.hero-role::before{content:'';width:26px;height:2px;border-radius:2px;background:var(--ember)}
+.hero-desc{font-size:15px;line-height:1.95;color:var(--muted);max-width:470px;margin-bottom:42px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{padding:16px 40px;border-radius:100px;background:linear-gradient(120deg,var(--ember),var(--ember-d));color:#FFF6EF;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:all .3s;display:inline-flex;align-items:center;gap:10px;box-shadow:0 12px 32px rgba(232,121,74,.3)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 42px rgba(232,121,74,.42)}
+.btn-ghost{padding:15px 40px;border-radius:100px;border:1px solid var(--bd);color:var(--ivory);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:all .26s}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+
+.hero-side{display:flex;flex-direction:column;border:1px solid var(--bd);border-radius:22px;overflow:hidden;background:linear-gradient(160deg,var(--blk2),var(--blk))}
+.hsc-quote{font-family:var(--fd);font-size:1.16rem;font-style:italic;line-height:1.8;padding:28px 30px;border-bottom:1px solid var(--bd);color:var(--ivory)}
+.hsc{padding:24px 30px;border-bottom:1px solid var(--bd);display:flex;flex-direction:column;gap:6px;transition:background .26s}
+.hsc:last-child{border-bottom:none}.hsc:hover{background:rgba(232,121,74,.07)}
+.hsc-val{font-family:var(--fd);font-size:3rem;color:var(--ember);line-height:1}
+.hsc-lbl{font-size:9px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+
+section:not(#hero){padding:clamp(64px,10vw,115px) clamp(20px,4vw,56px)}
+.sw{max-width:1220px;margin:0 auto}
+.sec-header{display:flex;align-items:center;gap:16px;margin-bottom:52px;border-bottom:1px solid var(--bd);padding-bottom:18px;flex-wrap:wrap}
+.sec-num{font-size:9px;font-weight:600;letter-spacing:.26em;color:var(--blk);background:var(--ember);padding:5px 11px;border-radius:7px}
+.sec-line{flex:1;height:1px;background:linear-gradient(90deg,var(--bd),transparent);max-width:120px}
+.sec-label{font-size:9px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+h2{font-family:var(--fd);font-size:clamp(2.4rem,5vw,4.1rem);font-weight:400;line-height:1.02;margin-bottom:14px}
+h2 em{font-style:italic;background:linear-gradient(100deg,var(--ember),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+#about{border-top:1px solid var(--bd)}
+.about-layout{display:grid;grid-template-columns:1fr 330px;gap:72px;align-items:start}
+.about-text{font-family:var(--fd);font-size:1.26rem;line-height:1.94;color:rgba(245,237,227,.8);font-weight:400}
+.about-side{display:grid;gap:2px;background:var(--bd);border-radius:20px;overflow:hidden}
+.an{background:var(--blk2);padding:24px 26px;transition:background .26s}
+.an:hover{background:var(--blk3)}
+.an-v{font-family:var(--fd);font-size:2.6rem;color:var(--ember);line-height:1}
+.an-l{font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+
+.skills-list{display:flex;flex-direction:column}
+.sk{display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:20px;padding:20px 8px;border-bottom:1px solid var(--bd);transition:padding-inline-start .24s,background .24s;cursor:default}
+.sk:first-child{border-top:1px solid var(--bd)}
+.sk:hover{padding-inline-start:20px;background:rgba(232,121,74,.06)}
+.sk-i{font-size:10px;font-weight:600;letter-spacing:.14em;color:rgba(245,237,227,.22);transition:color .24s}
+.sk:hover .sk-i{color:var(--ember)}
+.sk-n{font-family:var(--fd);font-size:1.5rem;transition:color .24s}
+.sk:hover .sk-n{color:var(--ember)}
+.sk-a{font-size:14px;color:transparent;transition:color .24s}
+.sk:hover .sk-a{color:var(--gold)}
+
+#experience{background:var(--blk2)}
+.exp-list{display:flex;flex-direction:column}
+.exp-block{display:grid;grid-template-columns:170px 1fr;gap:48px;padding:48px 0;border-bottom:1px solid var(--bd);align-items:start;transition:padding-inline-start .3s}
+.exp-block:first-of-type{border-top:1px solid var(--bd)}
+.exp-block:hover{padding-inline-start:10px}
+.exp-aside{display:flex;flex-direction:column;gap:14px;padding-top:6px}
+.exp-num{font-family:var(--fd);font-size:3.4rem;color:rgba(232,121,74,.24);line-height:1;transition:color .3s}
+.exp-block:hover .exp-num{color:rgba(217,174,89,.6)}
+.exp-period{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ember);line-height:1.8}
+.exp-role{font-family:var(--fd);font-size:1.66rem;margin-bottom:10px}
+.exp-co{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.exp-co::before{content:'';width:20px;height:1px;background:var(--gold)}
+.exp-desc{font-size:14px;line-height:1.9;color:var(--muted)}
+
+#education{border-top:1px solid var(--bd)}
+.edu-timeline{display:flex;flex-direction:column}
+.edu-row{display:grid;grid-template-columns:92px 40px 1fr;align-items:start;padding:30px 0}
+.edu-yr{font-family:var(--fd);font-size:1.24rem;color:var(--ember);padding-top:4px}
+.edu-mid{display:flex;flex-direction:column;align-items:center;padding-top:7px}
+.edu-node{width:10px;height:10px;border-radius:50%;background:var(--gold);flex-shrink:0;box-shadow:0 0 0 4px rgba(217,174,89,.16)}
+.edu-mid::after{content:'';flex:1;width:1px;background:var(--bd);margin-top:8px;min-height:34px}
+.edu-row:last-child .edu-mid::after{display:none}
+.edu-info{padding-inline-start:14px}
+.edu-deg{font-family:var(--fd);font-size:1.3rem;margin-bottom:6px}
+.edu-sch{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+#contact{background:linear-gradient(140deg,var(--ember) 0%,var(--ember-d) 70%,#9E441F 100%);position:relative;overflow:hidden}
+#contact::after{content:'';position:absolute;bottom:-32%;inset-inline-end:-8%;width:56vw;height:56vw;border-radius:50%;background:radial-gradient(circle,rgba(217,174,89,.2),transparent 66%)}
+#contact .sw{position:relative;z-index:1}
+#contact .sec-header{border-color:rgba(22,19,16,.16)}
+#contact .sec-num{background:var(--blk);color:var(--ember)}
+#contact .sec-label{color:rgba(22,19,16,.55)}
+#contact h2{color:#241812}
+#contact h2 em{-webkit-text-fill-color:#241812;background:none;color:#241812;font-style:italic}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:66px;align-items:start}
+.contact-intro{font-family:var(--fd);font-size:1.2rem;font-style:italic;line-height:1.9;color:rgba(36,24,18,.62);margin-top:-42px}
+.c-links{display:flex;flex-direction:column;gap:8px}
+.c-link{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 22px;background:rgba(22,19,16,.1);border:1px solid rgba(22,19,16,.1);border-radius:14px;text-decoration:none;transition:all .24s}
+.c-link:hover{background:rgba(22,19,16,.2);border-color:var(--blk);transform:translateY(-3px)}
+.cl{font-size:9px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:rgba(36,24,18,.5)}
+.cv{font-family:var(--fd);font-size:15px;color:#241812;overflow-wrap:anywhere}
+.c-raw{font-size:13px;color:rgba(36,24,18,.62);padding:16px 0}
+
+footer{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:32px clamp(20px,4vw,56px);border-top:1px solid var(--bd);font-size:9px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+.foot-logo{font-family:var(--fd);font-size:19px;color:var(--ivory)}
+.foot-logo span{color:var(--ember);font-style:italic}
+
+@media(max-width:1024px){.nav-menu{display:none}.hero-main{grid-template-columns:1fr}.hero-side{display:none}.about-layout{grid-template-columns:1fr;gap:44px}.exp-block{grid-template-columns:1fr;gap:14px}.exp-aside{flex-direction:row;align-items:baseline;gap:16px}.contact-layout{grid-template-columns:1fr;gap:36px}.contact-intro{margin-top:-30px}.edu-row{grid-template-columns:64px 28px 1fr}}
+@media(max-width:640px){nav{height:58px}.nav-logo{font-size:19px}.nav-tag{padding:6px 12px;font-size:8px}.marquee-strip{margin-top:58px}.big-h{font-size:clamp(2.8rem,15vw,3.8rem)}.hero-role{margin:22px 0 28px}.hero-desc{font-size:14px;margin-bottom:30px}.btn-primary,.btn-ghost{width:100%;justify-content:center;text-align:center}.sec-header{margin-bottom:36px}h2{font-size:2.1rem}.sk{grid-template-columns:40px 1fr auto;gap:12px}.sk-n{font-size:1.22rem}.exp-block{gap:10px;padding:34px 0}.exp-period{white-space:normal}.edu-row{grid-template-columns:52px 22px 1fr}.edu-deg{font-size:1.1rem}footer{flex-direction:column;align-items:flex-start}}
+@media(max-width:400px){.big-h{font-size:2.5rem}}
+
+.skip-link{position:absolute;top:-100%;left:0;background:#C8674A;color:#fff;padding:12px 24px;z-index:10000;font-size:14px;text-decoration:none;font-family:system-ui;border-radius:0 0 10px 0}
+.skip-link:focus{top:0}
+html{-webkit-tap-highlight-color:transparent}
+section[id]{scroll-margin-top:84px}
+h1,h2,.big-name,.big-h,.exp-title,.edu-deg,.exp-role{overflow-wrap:break-word;word-break:break-word}
+img,svg{max-width:100%}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}.reveal{opacity:1!important;transform:none!important}}
+@media print{nav,.scv-badge,.marquee-strip,.ticker,canvas,.grid-ov,.mesh{display:none!important}body{background:#fff!important;color:#000!important}section{break-inside:avoid;padding:20px 0!important}.reveal{opacity:1!important;transform:none!important}a{color:inherit!important;text-decoration:underline}}
+</style></head><body>
+<a href="#about" class="skip-link">Skip to content</a>
+<div class="content">
+<nav role="navigation"><div class="nav-logo"><span class="lm">✦</span>Yazan</div><div class="nav-menu"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#contact">Contact</a></div><div class="nav-tag"><span class="tag-dot"></span>Available for Work</div></nav>
+<div class="marquee-strip"><div class="mq-inner">Yazan <span class="mq-g">✦</span> Software Engineer <span class="mq-g">✦</span> Available for opportunities <span class="mq-g">✦</span> Yazan <span class="mq-g">✦</span> Software Engineer <span class="mq-g">✦</span> Available for opportunities <span class="mq-g">✦</span> Yazan <span class="mq-g">✦</span> Software Engineer <span class="mq-g">✦</span> Available for opportunities <span class="mq-g">✦</span> Yazan <span class="mq-g">✦</span> Software Engineer <span class="mq-g">✦</span> Available for opportunities <span class="mq-g">✦</span> </div></div>
+<section id="hero"><div class="hero-main"><div><div class="hero-issue">Available for opportunities · Software Engineer</div><div class="big-h"><span class="l1">Yazan</span><span class="l2">Software Engineer</span><span class="l3">YRS+ 2</span></div><p class="hero-role">2+ Years Experience</p><p class="hero-desc">Full‑Stack Developer with proven expertise in Flutter and ASP.NET Core, specializing in building scalable mobile applications and API‑driven backend systems. Delivered end‑to‑end solutions including e‑commerce platforms, management systems, and real‑time tracking apps.</p><div class="hero-btns"><a href="#contact" class="btn-primary">Get in Touch →</a><a href="#experience" class="btn-ghost">View My Work</a></div></div><div class="hero-side"><p class="hsc-quote">Excellence is not an act, but a habit.</p><div class="hsc"><div class="hsc-val" data-val="2" data-suf="+">0+</div><div class="hsc-lbl">Years Experience</div></div><div class="hsc"><div class="hsc-val" data-val="4" data-suf="+">0+</div><div class="hsc-lbl">Projects</div></div><div class="hsc"><div class="hsc-val" data-val="5">0</div><div class="hsc-lbl">Skills</div></div></div></div></section>
+<section id="about"><div class="sw"><div class="sec-header reveal"><span class="sec-num">01</span><span class="sec-label">About</span><span class="sec-line"></span></div><h2 class="reveal"><em>Who I Am</em></h2><div class="about-layout reveal"><p class="about-text">Full‑Stack Developer with proven expertise in Flutter and ASP.NET Core, specializing in building scalable mobile applications and API‑driven backend systems. Delivered end‑to‑end solutions including e‑commerce platforms, management systems, and real‑time tracking apps. Skilled in Firebase integration, RESTful API design, clean architecture, and performance optimization. Passionate about crafting high‑quality user experiences and solving complex technical challenges.</p><div class="about-side"><div class="an"><div class="an-v" data-val="2" data-suf="+">0+</div><div class="an-l">Years Experience</div></div><div class="an"><div class="an-v" data-val="4" data-suf="+">0+</div><div class="an-l">Projects</div></div><div class="an"><div class="an-v" data-val="5">0</div><div class="an-l">Skills</div></div></div></div></div></section>
+<section id="skills"><div class="sw reveal"><div class="sec-header"><span class="sec-num">02</span><span class="sec-label">Expertise</span><span class="sec-line"></span></div><h2><em>What I Do Best</em></h2><div class="skills-list"><div class="sk reveal"><span class="sk-i">01</span><span class="sk-n">Mobile Development: Flutter (Advanced UI Design), State Management (Provider), Responsive &amp; Adaptive UI</span><span class="sk-a">→</span></div><div class="sk reveal"><span class="sk-i">02</span><span class="sk-n">Backend Development: ASP.NET Core Web API, RESTful API Design &amp; Development, Authentication &amp; Authorization, SQL Server</span><span class="sk-a">→</span></div><div class="sk reveal"><span class="sk-i">03</span><span class="sk-n">Cloud &amp; Integration: Firebase (Authentication, Firestore, Cloud Messaging), API Integration</span><span class="sk-a">→</span></div><div class="sk reveal"><span class="sk-i">04</span><span class="sk-n">Programming Languages: Dart, C#, HTML &amp; CSS</span><span class="sk-a">→</span></div><div class="sk reveal"><span class="sk-i">05</span><span class="sk-n">Tools: Git &amp; GitHub, Visual Studio / VS Code, Linux (Basic)</span><span class="sk-a">→</span></div></div></div></section>
+<section id="experience"><div class="sw"><div class="sec-header reveal"><span class="sec-num">03</span><span class="sec-label">Experience</span><span class="sec-line"></span></div><h2 class="reveal"><em>Career Journey</em></h2><div class="exp-list"><div class="exp-block reveal"><div class="exp-aside"><div class="exp-num">01</div><div class="exp-period"></div></div><div class="exp-body"><div class="exp-role">• Engineered a full‑stack EV Charging Management System using Flutter and ASP.NET Core; built and integrated RESTful APIs for booking and user management; implemented a QR‑based vehicle verification system; designed a scalable architecture supporting multi‑role users.</div><div class="exp-co">• Developed an interactive coding game (Code Clash) with Flutter; integrated backend services via ASP.NET Core; implemented game logic and responsive UI; optimized performance for smooth gameplay.</div><p class="exp-desc">• Created a modern mobile e‑commerce application (SO CHIC); integrated APIs for products, orders, and user management; implemented cart, wishlist, and order tracking features; designed a clean, user‑friendly interface. — • Developed a Restaurant Management System using ASP.NET Core and SQL Server; built APIs to handle orders, tables, and menu data; improved workflow efficiency through automation; integrated frontend with backend services. — • Built an Employee Management App with Flutter and Firebase; implemented authentication and Firestore database; enabled real‑time data updates and reporting; enhanced employee tracking and management capabilities. — • Developed a 2D Adventure Game in Unity using C#; implemented player movement, enemy AI, and level design; designed game mechanics and collision systems.</p></div></div></div></div></section>
+<section id="education"><div class="sw reveal"><div class="sec-header"><span class="sec-num">04</span><span class="sec-label">Education</span><span class="sec-line"></span></div><h2><em>Academic Background</em></h2><div class="edu-timeline"><div class="edu-row reveal"><div class="edu-yr"></div><div class="edu-mid"><div class="edu-node"></div></div><div class="edu-info"><div class="edu-deg">Details not provided</div><div class="edu-sch"></div></div></div></div></div></section>
+<section id="contact"><div class="sw"><div class="contact-layout"><div class="reveal"><div class="sec-header"><span class="sec-num">05</span><span class="sec-label">Contact</span><span class="sec-line"></span></div><h2><em>Let's Connect</em></h2><p class="contact-intro">Open to meaningful collaborations and new challenges.</p></div><div class="c-links reveal"><p class="c-raw">Contact details not provided</p></div></div></div></section>
+<footer><div class="foot-logo">Yazan<span>.</span></div><div>Yazan © 2026 · ONLINE</div></footer>
+<div class="scv-badge"><a href="https://smartcv-app-download.netlify.app/" target="_blank" rel="noopener" class="scv-link"><span class="scv-icon">⚡</span><span class="scv-text">Created with <strong>SmartCV</strong></span><span class="scv-arrow">↗</span></a></div>
+<style>.scv-badge{position:fixed;bottom:24px;inset-inline-end:24px;z-index:9000;font-family:system-ui,sans-serif}.scv-link{display:inline-flex;align-items:center;gap:8px;background:rgba(24,20,16,.88);border:1px solid rgba(232,121,74,.28);backdrop-filter:blur(18px);padding:10px 18px;border-radius:100px;text-decoration:none;color:rgba(244,235,224,.5);font-size:12px;font-weight:500;letter-spacing:.02em;transition:all .3s cubic-bezier(.22,1,.36,1);box-shadow:0 6px 28px rgba(0,0,0,.14)}.scv-link:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.22);color:#E8794A}.scv-icon{font-size:13px;line-height:1}.scv-text strong{color:#E8794A;font-weight:700}.scv-arrow{font-size:11px;opacity:.6;transition:transform .22s}.scv-link:hover .scv-arrow{transform:translate(2px,-2px);opacity:1}@media(max-width:600px){.scv-badge{bottom:12px;inset-inline-end:12px;inset-inline-start:12px;text-align:center}.scv-link{padding:8px 14px;font-size:11px;width:100%;justify-content:center}}@media print{.scv-badge{display:none!important}}</style><script>(function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.07});document.querySelectorAll('.reveal,.reveal-left,.reveal-slow').forEach(function(el){io.observe(el)});var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!e.target.dataset.done){e.target.dataset.done='1';var end=parseInt(e.target.dataset.val)||0,suf=e.target.dataset.suf||'',cur=0,step=end/60;var t=setInterval(function(){cur=Math.min(cur+step,end);e.target.textContent=Math.floor(cur)+suf;if(cur>=end)clearInterval(t)},16)}})},{threshold:.5});document.querySelectorAll('[data-val]').forEach(function(el){cio.observe(el)})})();</script></div></body></html>
