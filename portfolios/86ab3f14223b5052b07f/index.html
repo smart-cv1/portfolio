@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Full‑Stack Developer with proven expertise in Flutter and ASP.NET Core, specializing in building scalable mobile applications and API‑driven backend systems. Delivered end‑to‑end solutions including e‑commerce platforms, management systems, and real‑time tracking apps.">
+<meta name="theme-color" content="#C8674A">
+<meta property="og:title" content="Yazan — Software Engineer">
+<meta property="og:description" content="Full‑Stack Developer with proven expertise in Flutter and ASP.NET Core, specializing in building scalable mobile applications and API‑driven backend systems. Delivered end‑to‑end solutions including e‑commerce platforms, management systems, and real‑time tracking apps.">
+<meta property="og:type" content="profile">
+<meta name="twitter:card" content="summary">
+<title>Yazan — Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&family=Poppins:wght@200;300;400;500;600&display=swap');
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#FCF5F3;--card:#FFFFFF;--ink:#331723;--soft:#7A5462;--muted:#C09FAA;--wine:#7A2E45;--wine-d:#571B2F;--gold:#C9A24B;--plum:#5A3B6B;--blush:#F2DFDB;--line:#F1DFE0;--fd:'Playfair Display',Georgia,serif;--fb:'Poppins','Segoe UI',sans-serif;--sh:0 8px 30px rgba(51,23,35,.07);--sh2:0 22px 54px rgba(51,23,35,.14)}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:var(--fb);color:var(--ink);overflow-x:hidden;font-size:15px;line-height:1.78;font-weight:300}
+*{-webkit-font-smoothing:antialiased}::selection{background:var(--wine);color:#fff}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--wine);border-radius:4px}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}.reveal.vis{opacity:1;transform:none}
+
+nav{position:fixed;top:0;inset-inline:0;z-index:200;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,56px);background:rgba(252,245,243,.86);backdrop-filter:blur(22px) saturate(150%);border-bottom:1px solid var(--line)}
+.nav-logo{font-family:var(--fd);font-size:22px;font-weight:800;letter-spacing:-.01em}
+.nav-logo em{font-style:italic;color:var(--gold)}
+.nav-links{display:flex;gap:2px}
+.nav-links a{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);text-decoration:none;padding:9px 19px;border-radius:100px;transition:all .24s}
+.nav-links a:hover{background:var(--card);color:var(--wine);box-shadow:var(--sh)}
+.nav-tag{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:linear-gradient(120deg,var(--wine),var(--wine-d));padding:9px 18px;border-radius:100px;display:flex;align-items:center;gap:8px;box-shadow:0 8px 22px rgba(122,46,69,.3)}
+.tag-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:tb 2s step-end infinite}
+@keyframes tb{0%,100%{opacity:1}50%{opacity:.2}}
+
+.marquee-strip{background:linear-gradient(90deg,var(--gold),#E0C177,var(--gold));overflow:hidden;padding:11px 0;margin-top:66px}
+.mq-inner{display:inline-block;white-space:nowrap;animation:mqr 26s linear infinite;font-family:var(--fd);font-size:14px;font-style:italic;letter-spacing:.05em;color:var(--wine-d)}
+@keyframes mqr{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ts{font-style:normal;font-size:11px;opacity:.55}
+
+#hero{min-height:calc(100vh - 44px);display:grid;grid-template-rows:1fr auto}
+.hero-main{display:grid;grid-template-columns:1fr 400px;gap:44px;align-items:center;padding:clamp(48px,8vw,80px) clamp(20px,4vw,56px)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--wine);margin-bottom:26px}
+.hero-eyebrow::before{content:'';width:30px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--wine),var(--gold))}
+h1{font-family:var(--fd);font-size:clamp(3.2rem,7.2vw,6rem);font-weight:600;line-height:.97;letter-spacing:-.025em;margin-bottom:20px}
+h1 .it{display:block;font-style:italic;font-weight:400;color:var(--soft)}
+h1 .sm{display:block;font-weight:800;background:linear-gradient(100deg,var(--wine),var(--plum) 60%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-role{font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+.hero-desc{font-size:15px;line-height:1.95;color:var(--soft);margin-bottom:38px;max-width:470px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:50px}
+.btn-primary{padding:16px 40px;border-radius:100px;background:linear-gradient(120deg,var(--wine),var(--wine-d));color:#FFF6F2;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:all .3s;display:inline-flex;align-items:center;gap:10px;box-shadow:0 12px 30px rgba(122,46,69,.3)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(122,46,69,.4)}
+.btn-ghost{padding:15px 40px;border-radius:100px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:all .26s}
+.btn-ghost:hover{border-color:var(--gold);color:var(--wine);transform:translateY(-2px)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:530px}
+.hstat{background:var(--card);border-radius:20px;padding:22px;box-shadow:var(--sh);transition:transform .3s,box-shadow .3s;border:1px solid var(--line)}
+.hstat:hover{transform:translateY(-6px);box-shadow:var(--sh2)}
+.hstat-val{font-family:var(--fd);font-size:2rem;font-weight:800;color:var(--wine);line-height:1}
+.hstat-lbl{font-size:9px;font-weight:500;letter-spacing:.19em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+
+.hero-collage{position:relative;height:530px}
+.collage-card{position:absolute;background:var(--card);border-radius:20px;padding:15px 15px 22px;box-shadow:var(--sh2);border:1px solid var(--line);width:235px}
+.cc1{top:8px;inset-inline-start:0;transform:rotate(-5deg)}
+.cc2{top:126px;inset-inline-end:0;transform:rotate(4.5deg)}
+.cc3{bottom:0;inset-inline-start:64px;transform:rotate(2deg)}
+.cc-img{border-radius:14px;aspect-ratio:4/3.4;display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,var(--wine),#A85A72 55%,var(--blush));position:relative;overflow:hidden}
+.cc-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 25% 15%,rgba(255,255,255,.32),transparent 50%)}
+.cc2 .cc-img{background:linear-gradient(150deg,var(--plum),#8A6D9A 55%,var(--blush))}
+.cc3 .cc-img{background:linear-gradient(150deg,var(--gold),#E3CB8C 55%,var(--blush))}
+.cc-mono{font-family:var(--fd);font-size:3rem;font-weight:800;color:rgba(255,255,255,.95);font-style:italic;position:relative}
+.cc-cap{display:flex;justify-content:space-between;align-items:center;padding-top:13px;gap:8px}
+.cc-name{font-family:var(--fd);font-size:13px;font-weight:700}
+.cc-tag{font-size:8px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--wine)}
+
+section:not(#hero){padding:clamp(64px,10vw,115px) clamp(20px,4vw,56px)}
+.sw{max-width:1220px;margin:0 auto}
+.sec-head{display:flex;align-items:center;gap:16px;margin-bottom:44px;flex-wrap:wrap}
+.sec-kicker{font-family:var(--fd);font-size:13px;font-style:italic;font-weight:700;color:var(--wine-d);background:rgba(201,162,75,.22);width:34px;height:34px;border-radius:11px;display:grid;place-items:center}
+.sec-line{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent);max-width:160px}
+.sec-tag{font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+h2{font-family:var(--fd);font-size:clamp(2.2rem,4.4vw,3.5rem);font-weight:600;letter-spacing:-.02em;line-height:1.05;margin-bottom:16px}
+h2 em{font-style:italic;font-weight:400;color:var(--wine)}
+
+#about{background:linear-gradient(180deg,rgba(242,223,219,.42),rgba(242,223,219,.12))}
+.about-grid{display:grid;grid-template-columns:1fr 330px;gap:70px;align-items:start}
+.about-text{font-family:var(--fd);font-size:1.18rem;line-height:1.96;font-weight:400}
+.about-side{display:grid;gap:12px}
+.acard{background:var(--card);border-radius:20px;padding:24px 26px;box-shadow:var(--sh);transition:transform .3s,box-shadow .3s;border:1px solid var(--line)}
+.acard:hover{transform:translateY(-5px);box-shadow:var(--sh2)}
+.acard-val{font-family:var(--fd);font-size:2.3rem;font-weight:800;color:var(--wine);line-height:1}
+.acard-lbl{font-size:9px;font-weight:500;letter-spacing:.19em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+
+.skills-cloud{display:flex;flex-wrap:wrap;gap:12px}
+.chip{font-size:13px;font-weight:500;padding:12px 25px;border-radius:100px;border:1px solid var(--line);background:var(--card);cursor:default;transition:all .26s}
+.chip.wine{background:rgba(122,46,69,.09);border-color:rgba(122,46,69,.26);color:var(--wine)}
+.chip.gold{background:rgba(201,162,75,.14);border-color:rgba(201,162,75,.34);color:#95721F}
+.chip.plum{background:rgba(90,59,107,.1);border-color:rgba(90,59,107,.26);color:var(--plum)}
+.chip.blush{background:rgba(242,223,219,.7);border-color:rgba(200,160,155,.3);color:#8A5F62}
+.chip:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(51,23,35,.12)}
+
+#experience{background:#fff}
+.exp-list{display:flex;flex-direction:column}
+.exp-item{display:grid;grid-template-columns:70px 1fr;gap:28px;padding:42px 0;border-bottom:1px solid var(--line);align-items:start;transition:padding-inline-start .3s}
+.exp-item:first-of-type{border-top:1px solid var(--line)}
+.exp-item:hover{padding-inline-start:10px}
+.exp-num{font-family:var(--fd);font-size:2.7rem;font-weight:800;color:rgba(122,46,69,.2);line-height:1;padding-top:4px;transition:color .3s}
+.exp-item:hover .exp-num{color:rgba(201,162,75,.65)}
+.exp-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+.exp-title{font-family:var(--fd);font-size:1.44rem;font-weight:700}
+.exp-period{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--wine-d);padding:6px 16px;border-radius:100px}
+.exp-co{font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#95721F;margin-bottom:12px}
+.exp-desc{font-size:14px;line-height:1.9;color:var(--soft)}
+
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.edu-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s;box-shadow:var(--sh)}
+.edu-card::before{content:'';position:absolute;top:0;inset-inline:0;height:4px;background:linear-gradient(90deg,var(--wine),var(--gold))}
+.edu-card:hover{transform:translateY(-6px);box-shadow:var(--sh2)}
+.edu-yr{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--wine);margin-bottom:16px}
+.edu-deg{font-family:var(--fd);font-size:1.16rem;font-weight:700;margin-bottom:8px;line-height:1.32}
+.edu-sch{font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+
+#contact{background:linear-gradient(140deg,var(--wine) 0%,var(--wine-d) 60%,#3E1223 100%);position:relative;overflow:hidden}
+#contact::after{content:'';position:absolute;bottom:-30%;inset-inline-start:-10%;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(circle,rgba(201,162,75,.16),transparent 68%)}
+#contact .sw{position:relative;z-index:1}
+#contact h2{color:#FFF6F2}#contact h2 em{color:var(--gold)}
+#contact .sec-tag{color:rgba(255,255,255,.55)}
+#contact .sec-kicker{color:var(--wine-d);background:var(--gold)}
+.contact-wrap{max-width:740px;margin:0 auto;text-align:center}
+.contact-intro{font-family:var(--fd);font-size:1.16rem;font-style:italic;line-height:1.9;color:rgba(255,246,242,.72);margin-top:-22px;margin-bottom:42px}
+.c-links{display:flex;flex-direction:column;gap:10px;text-align:start}
+.c-link{display:flex;justify-content:space-between;align-items:center;gap:12px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px 24px;text-decoration:none;transition:all .26s;backdrop-filter:blur(8px)}
+.c-link:hover{background:rgba(255,255,255,.17);border-color:var(--gold);transform:translateY(-3px)}
+.cl{font-size:9px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.cv{font-size:13px;font-weight:600;color:#FFF6F2;overflow-wrap:anywhere}
+.c-raw{font-size:13px;color:rgba(255,255,255,.7);padding:16px 0}
+
+footer{text-align:center;padding:40px 24px;font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);background:var(--bg)}
+footer .hp{color:var(--gold)}
+
+@media(max-width:1024px){.nav-links{display:none}.hero-main{grid-template-columns:1fr}.hero-collage{display:none}.about-grid{grid-template-columns:1fr;gap:44px}}
+@media(max-width:640px){nav{height:60px}.nav-tag{display:none}.marquee-strip{margin-top:60px}h1{font-size:clamp(2.4rem,11vw,3.1rem)}.hero-desc{font-size:14px;margin-bottom:30px}.hero-btns .btn-primary,.hero-btns .btn-ghost{width:100%;justify-content:center;text-align:center}.hero-stats{grid-template-columns:1fr 1fr}.hstat{padding:18px}.sec-head{margin-bottom:32px}h2{font-size:1.9rem}.exp-item{grid-template-columns:1fr;gap:10px;padding:34px 0}.exp-num{display:none}.exp-period{white-space:normal}}
+@media(max-width:400px){.hero-stats{grid-template-columns:1fr}.hstat{text-align:center}}
+
+.skip-link{position:absolute;top:-100%;left:0;background:#C8674A;color:#fff;padding:12px 24px;z-index:10000;font-size:14px;text-decoration:none;font-family:system-ui;border-radius:0 0 10px 0}
+.skip-link:focus{top:0}
+html{-webkit-tap-highlight-color:transparent}
+section[id]{scroll-margin-top:84px}
+h1,h2,.big-name,.big-h,.exp-title,.edu-deg,.exp-role{overflow-wrap:break-word;word-break:break-word}
+img,svg{max-width:100%}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}.reveal{opacity:1!important;transform:none!important}}
+@media print{nav,.scv-badge,.marquee-strip,.ticker,canvas,.grid-ov,.mesh{display:none!important}body{background:#fff!important;color:#000!important}section{break-inside:avoid;padding:20px 0!important}.reveal{opacity:1!important;transform:none!important}a{color:inherit!important;text-decoration:underline}}
+</style></head><body>
+<a href="#about" class="skip-link">Skip to content</a>
+<nav role="navigation"><div class="nav-logo">Yazan<em>.</em></div><div class="nav-links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#contact">Contact</a></div><div class="nav-tag"><span class="tag-dot"></span>Available for Work</div></nav>
+<div class="marquee-strip"><div class="mq-inner">Yazan <span class="ts">✦</span> Software Engineer <span class="ts">✦</span> Yazan <span class="ts">✦</span> Software Engineer <span class="ts">✦</span> Yazan <span class="ts">✦</span> Software Engineer <span class="ts">✦</span> Yazan <span class="ts">✦</span> Software Engineer <span class="ts">✦</span> </div></div>
+<section id="hero"><div class="hero-main"><div><div class="hero-eyebrow">Available for opportunities</div><h1><span class="it">Yazan</span><span class="sm">Software Engineer</span></h1><p class="hero-role">Software Engineer · 2+ Years Experience</p><p class="hero-desc">Full‑Stack Developer with proven expertise in Flutter and ASP.NET Core, specializing in building scalable mobile applications and API‑driven backend systems. Delivered end‑to‑end solutions including e‑commerce platforms, management systems, and real‑time tracking apps.</p><div class="hero-btns"><a href="#contact" class="btn-primary">Get in Touch →</a><a href="#experience" class="btn-ghost">View My Work</a></div><div class="hero-stats"><div class="hstat"><div class="hstat-val" data-val="2" data-suf="+">0+</div><div class="hstat-lbl">Years Experience</div></div><div class="hstat"><div class="hstat-val" data-val="4" data-suf="+">0+</div><div class="hstat-lbl">Projects</div></div><div class="hstat"><div class="hstat-val" data-val="5">0</div><div class="hstat-lbl">Skills</div></div></div></div><div class="hero-collage"><div class="collage-card cc1"><div class="cc-img"><span class="cc-mono">Y</span></div><div class="cc-cap"><span class="cc-name">Yazan</span><span class="cc-tag">Software Engineer</span></div></div><div class="collage-card cc2"><div class="cc-img"><span class="cc-mono">✦</span></div><div class="cc-cap"><span class="cc-name">Available for Work</span><span class="cc-tag">Activity</span></div></div><div class="collage-card cc3"><div class="cc-img"><span class="cc-mono">4+</span></div><div class="cc-cap"><span class="cc-name">Projects</span><span class="cc-tag">Shipped to production</span></div></div></div></div></section>
+<section id="about"><div class="sw"><div class="sec-head reveal"><span class="sec-kicker">01</span><span class="sec-tag">About</span><span class="sec-line"></span></div><h2 class="reveal"><em>Who I Am</em></h2><div class="about-grid reveal"><p class="about-text">Full‑Stack Developer with proven expertise in Flutter and ASP.NET Core, specializing in building scalable mobile applications and API‑driven backend systems. Delivered end‑to‑end solutions including e‑commerce platforms, management systems, and real‑time tracking apps. Skilled in Firebase integration, RESTful API design, clean architecture, and performance optimization. Passionate about crafting high‑quality user experiences and solving complex technical challenges.</p><div class="about-side"><div class="acard"><div class="acard-val" data-val="2" data-suf="+">0+</div><div class="acard-lbl">Years Experience</div></div><div class="acard"><div class="acard-val" data-val="4" data-suf="+">0+</div><div class="acard-lbl">Projects</div></div><div class="acard"><div class="acard-val" data-val="5">0</div><div class="acard-lbl">Skills</div></div></div></div></div></section>
+<section id="skills"><div class="sw"><div class="sec-head reveal"><span class="sec-kicker">02</span><span class="sec-tag">Expertise</span><span class="sec-line"></span></div><h2 class="reveal"><em>What I Do Best</em></h2><div class="skills-cloud"><span class="chip wine reveal">Mobile Development: Flutter (Advanced UI Design), State Management (Provider), Responsive &amp; Adaptive UI</span><span class="chip gold reveal">Backend Development: ASP.NET Core Web API, RESTful API Design &amp; Development, Authentication &amp; Authorization, SQL Server</span><span class="chip plum reveal">Cloud &amp; Integration: Firebase (Authentication, Firestore, Cloud Messaging), API Integration</span><span class="chip blush reveal">Programming Languages: Dart, C#, HTML &amp; CSS</span><span class="chip wine reveal">Tools: Git &amp; GitHub, Visual Studio / VS Code, Linux (Basic)</span></div></div></section>
+<section id="experience"><div class="sw"><div class="sec-head reveal"><span class="sec-kicker">03</span><span class="sec-tag">Experience</span><span class="sec-line"></span></div><h2 class="reveal"><em>Career Journey</em></h2><div class="exp-list"><div class="exp-item reveal"><div class="exp-num">01</div><div class="exp-body"><div class="exp-top"><div class="exp-title">• Engineered a full‑stack EV Charging Management System using Flutter and ASP.NET Core; built and integrated RESTful APIs for booking and user management; implemented a QR‑based vehicle verification system; designed a scalable architecture supporting multi‑role users.</div><div class="exp-period"></div></div><div class="exp-co">• Developed an interactive coding game (Code Clash) with Flutter; integrated backend services via ASP.NET Core; implemented game logic and responsive UI; optimized performance for smooth gameplay.</div><p class="exp-desc">• Created a modern mobile e‑commerce application (SO CHIC); integrated APIs for products, orders, and user management; implemented cart, wishlist, and order tracking features; designed a clean, user‑friendly interface. — • Developed a Restaurant Management System using ASP.NET Core and SQL Server; built APIs to handle orders, tables, and menu data; improved workflow efficiency through automation; integrated frontend with backend services. — • Built an Employee Management App with Flutter and Firebase; implemented authentication and Firestore database; enabled real‑time data updates and reporting; enhanced employee tracking and management capabilities. — • Developed a 2D Adventure Game in Unity using C#; implemented player movement, enemy AI, and level design; designed game mechanics and collision systems.</p></div></div></div></div></section>
+<section id="education"><div class="sw"><div class="sec-head reveal"><span class="sec-kicker">04</span><span class="sec-tag">Education</span><span class="sec-line"></span></div><h2 class="reveal"><em>Academic Background</em></h2><div class="edu-grid"><div class="edu-card reveal"><div class="edu-yr"></div><div class="edu-deg">Details not provided</div><div class="edu-sch"></div></div></div></div></section>
+<section id="contact"><div class="sw"><div class="contact-wrap reveal"><div class="sec-head" style="justify-content:center"><span class="sec-kicker">05</span><span class="sec-tag">Contact</span></div><h2><em>Let's Connect</em></h2><p class="contact-intro">Open to meaningful collaborations and new challenges.</p><div class="c-links"><p class="c-raw">Contact details not provided</p></div></div></div></section>
+<footer><span class="hp">✦</span> Crafted with purpose · Yazan © 2026</footer>
+<div class="scv-badge"><a href="https://smartcv-app-download.netlify.app/" target="_blank" rel="noopener" class="scv-link"><span class="scv-icon">⚡</span><span class="scv-text">Created with <strong>SmartCV</strong></span><span class="scv-arrow">↗</span></a></div>
+<style>.scv-badge{position:fixed;bottom:24px;inset-inline-end:24px;z-index:9000;font-family:system-ui,sans-serif}.scv-link{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.92);border:1px solid rgba(122,46,69,.2);backdrop-filter:blur(18px);padding:10px 18px;border-radius:100px;text-decoration:none;color:#7D5A66;font-size:12px;font-weight:500;letter-spacing:.02em;transition:all .3s cubic-bezier(.22,1,.36,1);box-shadow:0 6px 28px rgba(0,0,0,.14)}.scv-link:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.22);color:#7A2E45}.scv-icon{font-size:13px;line-height:1}.scv-text strong{color:#7A2E45;font-weight:700}.scv-arrow{font-size:11px;opacity:.6;transition:transform .22s}.scv-link:hover .scv-arrow{transform:translate(2px,-2px);opacity:1}@media(max-width:600px){.scv-badge{bottom:12px;inset-inline-end:12px;inset-inline-start:12px;text-align:center}.scv-link{padding:8px 14px;font-size:11px;width:100%;justify-content:center}}@media print{.scv-badge{display:none!important}}</style><script>(function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.07});document.querySelectorAll('.reveal,.reveal-left,.reveal-slow').forEach(function(el){io.observe(el)});var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!e.target.dataset.done){e.target.dataset.done='1';var end=parseInt(e.target.dataset.val)||0,suf=e.target.dataset.suf||'',cur=0,step=end/60;var t=setInterval(function(){cur=Math.min(cur+step,end);e.target.textContent=Math.floor(cur)+suf;if(cur>=end)clearInterval(t)},16)}})},{threshold:.5});document.querySelectorAll('[data-val]').forEach(function(el){cio.observe(el)})})();</script></body></html>
